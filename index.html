@@ -8,7 +8,7 @@
     <meta name="keywords" content="tienda, proyecto, proyecto integrador">
     <meta name="author" content="Enzo Martín Alfonso Flores">
 
-    <title>Mi tienda</title>
+    <title>Tincho Store</title>
 
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
@@ -16,55 +16,184 @@
 
 <body class="home">
     <header class="header">
-        <img src="./images/logo.png" alt="Logo">
-        <h1>Mi tienda</h1>
+        <div class="header__store">
+            <img class="header__logo" src="./images/logo.png" alt="Logo">
+            <h1 class="header__title">Tincho Store - Home</h1>
+        </div>
         <nav class="navbar">
-            <ul>
-                <li><a href="./index.html">Home</a></li>
+            <ul class="navbar__menu">
+                <li><a class="navbar__item navbar__item--active" href="./index.html">Home</a></li>
+                <li><a class="navbar__item" href="./about.html">Nosotros</a></li>
+                <li><a class="navbar__item" href="./contact.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="main">
-        <section>
-            <div>
-                <div>
-                    <h4>Primer Slide</h4>
-                    <img src="./images/gallery/img01.jpg" alt="">
+        <section class="section section--slider">
+            <div class="slider">
+                <div class="slider__one">
+                    <h4 class="slider__title">Primer Slide</h4>
+                    <img class="slider__image" src="./images/gallery/img01.jpg" alt="">
                 </div>
-                <div>
-                    <h4>Segundo Slide</h4>
-                    <img src="./images/gallery/img02.jpg" alt="">
+                <div class="slider__two">
+                    <h4 class="slider__title">Segundo Slide</h4>
+                    <img class="slider__image" src="./images/gallery/img02.jpg" alt="">
                 </div>
-                <div>
-                    <h4>Tercer Slide</h4>
-                    <img src="./images/gallery/img03.jpg" alt="">
+                <div class="slider__three">
+                    <h4 class="slider__title">Tercer Slide</h4>
+                    <img class="slider__image" src="./images/gallery/img03.jpg" alt="">
                 </div>
             </div>
         </section>
-        <section>
+        <section class="section section--products">
             <h3>Galería de productos</h3>
-            <figure>
-                <img src="./images/gallery/img01.jpg" alt="descripcion de la foto">
-                <h4>Nombre del primer producto</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.</p>
-                <div>
-                    <button>Agregar</button>
-                    <span>0</span>
-                    <button>Quitar</button>
+            <div class="search-add__form">
+                <input class="search__form--input" type="text" name="search-product" id="id-search-product"
+                    placeholder="Buscar productos">
+                <div class="add__product">
+                    Agregar Producto
                 </div>
-            </figure>
+            </div>
 
-            <figure>
-                <img src="./images/gallery/img02.jpg" alt="descripcion de la foto">
-                <h4>Nombre del primer producto</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.</p>
-                <div>
-                    <button>Agregar</button>
-                    <span>0</span>
-                    <button>Quitar</button>
-                </div>
-            </figure>
+            <div class="gallery">
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/HGF378AFB.jpg" alt="Heladera Gafa">
+                    <h4 class="card__title">Heladera Gafa HGF378AFB</h4>
+                    <ul class="card__text">
+                        <li>Color: Blanco.</li>
+                        <li>Dimensiones: 66.98 cm de ancho, 174.42 cm de alto y 68.45 cm de profundidad.</li>
+                        <li>Capacidad: 326 Litros.</li>
+                        <li>Tipo de deshielo: Cycle defrost.</li>
+                    </ul>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/Hdr370f11s.jpg" alt="Heladera Drean">
+                    <h4 class="card__title">Nombre del segundo producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">7500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+                <figure class="card card--product">
+                    <img class="card__image" src="./images/gallery/BS35WCCR.jpg" alt="Aire Acondicionado BGH">
+                    <h4 class="card__title">Nombre del primer producto</h4>
+                    <p class="card__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, nihil.
+                    </p>
+                    <span class="card__price">5500,22</span>
+                    <div class="card__addcart">
+                        <button class="button button--sm button--remove">-</button>
+                        <span class="card__counter">0</span>
+                        <button class="button button--sm button--add">+</button>
+                    </div>
+                </figure>
+
+            </div>
+
         </section>
 
     </main>

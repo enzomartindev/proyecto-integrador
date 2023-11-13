@@ -1,6 +1,52 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
+$_padding: 10vw;
+
 .main {
     grid-area: main;
+    padding: 0 $_padding 0 $_padding;
+
+    .section {
+
+        width: 100%;
+
+        &--slider {
+
+            overflow: hidden;
+        }
+
+        &--products {
+
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+        }
+
+        &--products {
+            margin-top: 1vh;
+            border-radius: 5px;
+            padding: 1vh;
+        }
+
+        .search-add__form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1vw;
+
+            &--input {
+
+                height: 20px;
+
+            }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2vh;
+
+        }
+
+    }
 }

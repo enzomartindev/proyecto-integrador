@@ -2,5 +2,29 @@
 @use "../asbtracts/mixins" as mix;
 
 .navbar {
-   
+    padding: 1vh 10vw 1vh 10vw;
+
+
+    &__menu {
+        display: flex;
+        gap: 1vw;
+
+    }
+
+    &__item {
+        text-decoration: none;
+        color: var.$navbarItemColor;
+
+        &--active {
+            text-decoration: underline;
+            color: var.$navbarItemActiveColor;
+            font-weight: bold;
+        }
+
+        &:hover {
+            color: azure;
+        }
+
+    }
+
 }

@@ -1,10 +1,27 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
-.header{
-    grid-area: header;
+$_paddingX: 10vw;
+$_paddingY: 1vh;
 
-    h1{
-        color: red;
+.header {
+    grid-area: header;
+    background-color: var.$backgroundHeaderColor;
+
+    &__store {
+        display: flex;
+        gap: 1vw;
+        border-bottom: 1px solid var.$borderHeaderColor;
+        padding: $_paddingY $_paddingX 0 $_paddingX;
+
     }
+
+    &__title {
+        color: azure;
+    }
+
+    &__logo {
+        height: min-content;
+    }
+
 }

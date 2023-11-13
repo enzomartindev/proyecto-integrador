@@ -1,15 +1,14 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
-$_padding: 0.5vw;
 
 body {
     display: grid;
     grid-template-areas:
         "header"
+        "navbar"
         "main"
         "footer";
-
-    padding: $_padding;
-    width: calc(100% - (2 * $_padding));
+    gap: 1vh;
+    background-color: var.$backgroundBodyColor;
 }
