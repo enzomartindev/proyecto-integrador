@@ -5,7 +5,7 @@ $_padding: 10vw;
 
 .main {
     grid-area: main;
-    padding: 0 $_padding 0 $_padding;
+    padding: 5vh $_padding 0 $_padding;
 
     .section {
 
@@ -29,24 +29,30 @@ $_padding: 10vw;
             padding: 1vh;
         }
 
-        .search-add__form {
+        .search__form {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1vw;
 
             &--input {
 
-                height: 20px;
+                height: 30px;
+                border-radius: 0.5em;
+                border: 2px solid var.$backgroundHeaderColor;
+                outline: none;
+
 
             }
         }
 
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2vh;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
 
         }
+
 
     }
 }

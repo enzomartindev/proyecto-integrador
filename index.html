@@ -9,8 +9,7 @@
     <meta name="author" content="Enzo Martín Alfonso Flores">
 
     <title>Tincho Store</title>
-
-    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/favicon2.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -18,7 +17,7 @@
     <header class="header">
         <div class="header__store">
             <img class="header__logo" src="./images/logo.png" alt="Logo">
-            <h1 class="header__title">Tincho Store - Home</h1>
+            <h1 class="header__title">Tincho Store</h1>
         </div>
         <nav class="navbar">
             <ul class="navbar__menu">
@@ -48,11 +47,11 @@
         </section>
         <section class="section section--products">
             <h3>Galería de productos</h3>
-            <div class="search-add__form">
+            <div class="search__form">
                 <input class="search__form--input" type="text" name="search-product" id="id-search-product"
                     placeholder="Buscar productos">
-                <div class="add__product">
-                    Agregar Producto
+                <div class="addproduct">
+                    <a class="addproduct__item" href="./add-product.html">Agregar Producto</a>
                 </div>
             </div>
 
@@ -63,7 +62,6 @@
                     <h4 class="card__title">Heladera Gafa HGF378AFB</h4>
                     <ul class="card__text">
                         <li>Color: Blanco.</li>
-                        <li>Dimensiones: 66.98 cm de ancho, 174.42 cm de alto y 68.45 cm de profundidad.</li>
                         <li>Capacidad: 326 Litros.</li>
                         <li>Tipo de deshielo: Cycle defrost.</li>
                     </ul>
@@ -199,7 +197,18 @@
     </main>
 
     <footer class="footer">
-        <span>&copy;2023 Todos los derechos reservados</span>
+        <div class="social">
+            <p>Nuestras redes</p>
+            <div class="social__networks">
+                <a title="Facebook" href="https://www.facebook.com" target="_blank"><img
+                        src="./images/socialnetworks/facebook.png" alt="Facebook" /></a>
+                <a title="Facebook" href="https://www.instagram.com" target="_blank"><img
+                        src="./images/socialnetworks/instagram.png" alt="instagram" /></a>
+                <a title="Facebook" href="https://web.whatsapp.com/" target="_blank"><img
+                        src="./images/socialnetworks/whatsapp.png" alt="Whatsapp" /></a>
+            </div>
+        </div>
+        <span>&copy;2023 Tincho Store - Todos los derechos reservados</span>
     </footer>
 
     <script src="./js/main.js"></script>

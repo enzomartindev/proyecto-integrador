@@ -1,27 +1,35 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
-$_paddingX: 10vw;
-$_paddingY: 1vh;
+$_paddingX: 1vw;
+$_paddingY: 0vh;
 
 .header {
+    display: flex;
+    position: fixed;
     grid-area: header;
     background-color: var.$backgroundHeaderColor;
+    padding: $_paddingY $_paddingX $_paddingY $_paddingX;
+    gap: 3vw;
+    width: 100%;
 
     &__store {
         display: flex;
-        gap: 1vw;
-        border-bottom: 1px solid var.$borderHeaderColor;
-        padding: $_paddingY $_paddingX 0 $_paddingX;
-
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5vw;
     }
 
     &__title {
-        color: azure;
+        color: var.$titleColor;
+        font-family: 'BreadStore', 'cursive', 'Poppins', sans-serif;
+        font-size: 2em;
+        padding-top: 1.5vh;
     }
 
     &__logo {
-        height: min-content;
+        height: auto;
     }
+
 
 }

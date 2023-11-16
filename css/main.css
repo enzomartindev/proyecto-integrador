@@ -9,6 +9,10 @@ ul {
   list-style: none;
 }
 
+@font-face {
+  font-family: "BreadStore";
+  src: url("/proyecto-integrador/fonts/BreadStore.ttf") format("truetype");
+}
 .button {
   border: 0.0625rem solid black;
   border-radius: 0.35rem;
@@ -73,6 +77,7 @@ ul {
   height: 25vh;
   width: 300%;
   display: flex;
+  z-index: -1;
   animation-name: move-slide;
   animation-duration: 18s;
   animation-timing-function: ease-in-out;
@@ -126,10 +131,11 @@ ul {
 .card {
   background-color: white;
   padding: 1vw;
+  height: 450px;
 }
 .card__image {
   width: 100%;
-  height: 30vh;
+  height: 250px;
   object-fit: contain;
 }
 .card__title {
@@ -139,7 +145,8 @@ ul {
 }
 .card__text {
   padding-top: 0.5vh;
-  color: #171d25;
+  color: #0b2239;
+  text-overflow: ellipsis;
 }
 .card__price {
   padding-top: 0.5vh;
@@ -149,23 +156,23 @@ ul {
 .card__price::before {
   content: "$ ";
 }
+.card__addcart {
+  padding-top: 0.5vh;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  gap: 0.5vw;
+}
 .card--product {
-  border-radius: 5px;
-  height: 50vh;
-  display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .card--product:hover {
   cursor: pointer;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   transition: all 300ms;
-}
-.card__addcart {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 0.5vw;
 }
 
 body {
@@ -177,28 +184,54 @@ body {
 
 .footer {
   grid-area: footer;
+  background-color: #0b2239;
+  color: azure;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1vW;
+  gap: 2vh;
+}
+.footer .social {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.footer .social__networks {
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
 }
 
 .header {
+  display: flex;
+  position: fixed;
   grid-area: header;
-  background-color: #171d25;
+  background-color: #0b2239;
+  padding: 0vh 1vw 0vh 1vw;
+  gap: 3vw;
+  width: 100%;
 }
 .header__store {
   display: flex;
-  gap: 1vw;
-  border-bottom: 1px solid #465362;
-  padding: 1vh 10vw 0 10vw;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5vw;
 }
 .header__title {
   color: azure;
+  font-family: "BreadStore", "cursive", "Poppins", sans-serif;
+  font-size: 2em;
+  padding-top: 1.5vh;
 }
 .header__logo {
-  height: min-content;
+  height: auto;
 }
 
 .main {
   grid-area: main;
-  padding: 0 10vw 0 10vw;
+  padding: 5vh 10vw 0 10vw;
 }
 .main .section {
   width: 100%;
@@ -216,22 +249,26 @@ body {
   border-radius: 5px;
   padding: 1vh;
 }
-.main .section .search-add__form {
+.main .section .search__form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1vw;
 }
-.main .section .search-add__form--input {
-  height: 20px;
+.main .section .search__form--input {
+  height: 30px;
+  border-radius: 0.5em;
+  border: 2px solid #0b2239;
+  outline: none;
 }
 .main .section .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2vh;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
 }
 
 .navbar {
-  padding: 1vh 10vw 1vh 10vw;
+  display: flex;
+  align-items: center;
 }
 .navbar__menu {
   display: flex;
@@ -243,8 +280,8 @@ body {
 }
 .navbar__item--active {
   text-decoration: underline;
-  color: #199CFA;
   font-weight: bold;
+  color: #199CFA;
 }
 .navbar__item:hover {
   color: azure;

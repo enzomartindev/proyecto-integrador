@@ -8,6 +8,7 @@ $_width: 100%;
     height: 25vh;
     width: calc($_width * 3);
     display: flex;
+    z-index: -1;
 
     animation-name: move-slide;
     animation-duration: 18s;
