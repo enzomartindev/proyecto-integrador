@@ -31,5 +31,27 @@ $_paddingY: 0vh;
         height: auto;
     }
 
+    .cart {
+        display: flex;
+        margin-left: auto;
+        margin-right: 10vw;
+        align-self: center;
+        padding: 1vh;
+
+        &:hover{
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    } 
+
+    .cart__added{
+        background-color: red;
+        color: white;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+    }
+
 
 }
