@@ -11,7 +11,7 @@ ul {
 
 @font-face {
   font-family: "BreadStore";
-  src: url("/proyecto-integrador/fonts/BreadStore.ttf") format("truetype");
+  src: url("../fonts/BreadStore.ttf") format("truetype");
 }
 .button {
   border: 0.0625rem solid black;
