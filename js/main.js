@@ -1,5 +1,4 @@
 let cartCount = 0;
-let cardCount = 0;
 let cart = document.querySelector('.cart__counter');
 let addToCartButtons = document.querySelectorAll(".button--add");
 let removeFromCartButtons = document.querySelectorAll(".button--remove");
@@ -50,7 +49,6 @@ function cardCounter(card, operation) {
 
             if (card.innerText == 0) {
                 //Si llego a 0 deshabilito el boton
-                console.log("llego a 0, deshabilitar boton")
                 disableButton(card.previousElementSibling);
             }
             break;
@@ -63,13 +61,13 @@ function cardCounter(card, operation) {
             break;
     }
 }
-
 //Asigno la funcion a todos los botones
 function addButtons() {
     for (let i = 0; i < addToCartButtons.length; i++) {
         addToCartButtons[i].onclick = addtoCart;
     }
 }
+
 function removeButtons() {
     for (let i = 0; i < removeFromCartButtons.length; i++) {
         removeFromCartButtons[i].onclick = removeFromCart;

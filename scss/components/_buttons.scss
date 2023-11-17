@@ -34,6 +34,8 @@
         &:hover,
         &:active {
             @include mix.button-active(darkgreen, lightgreen, white);
+            transform: scale(1.3);
+            transition: all 150ms;
         }
 
     }
@@ -45,6 +47,7 @@
         &:hover,
         &:active {
             @include mix.button-active(darkred, red, white);
+
         }
     }
 
@@ -52,13 +55,6 @@
         @include mix.button-default(white, white, gray);
         cursor: default;
 
-        /*&:hover,
-        &:active {
-            background-image: linear-gradient(125deg, gray, lightgray, gray 65%);
-            border-color: white;
-            color: white;
-
-        }*/
 
     }
 }

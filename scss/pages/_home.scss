@@ -1,6 +1,59 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
-h1 {
-    color: red;
+
+
+@media (max-width: 992px) {
+
+    .home {
+        .main {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+
+            }
+
+        }
+
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        .main {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+
+            }
+
+        }
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .home {
+
+        .header {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main {
+            .gallery {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 1rem;
+
+            }
+
+        }
+
+    }
+
 }

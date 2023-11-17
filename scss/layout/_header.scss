@@ -3,15 +3,19 @@
 
 $_paddingX: 1vw;
 $_paddingY: 0vh;
+$_headerHeight: 68px;
 
 .header {
-    display: flex;
+    /*display: flex;*/
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     position: fixed;
     grid-area: header;
     background-color: var.$backgroundHeaderColor;
     padding: $_paddingY $_paddingX $_paddingY $_paddingX;
     gap: 3vw;
     width: 100%;
+    height: $_headerHeight;
 
     &__store {
         display: flex;
