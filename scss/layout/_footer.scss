@@ -24,4 +24,10 @@
             justify-content: center;
         }
     }
+
+    &--about,
+    &--contact,
+    &--addproduct {
+        margin-top: auto;
+    }
 }
