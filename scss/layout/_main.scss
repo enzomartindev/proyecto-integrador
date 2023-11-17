@@ -5,7 +5,7 @@ $_padding: 10vw;
 
 .main {
     grid-area: main;
-    padding: 5vh $_padding 0 $_padding;
+    padding: calc(var.$headerHeight + 10px) $_padding 0 $_padding;
 
     .section {
 
@@ -36,10 +36,62 @@ $_padding: 10vw;
 
             &--input {
 
-                height: 30px;
-                border-radius: 0.5em;
-                border: 2px solid var.$backgroundHeaderColor;
+                display: flex;
+
+                font-size: 1.2rem;
+                border-radius: 0.2rem;
+                border: 1px solid gray;
                 outline: none;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                padding: 10px;
+                background-color: var.$backgroundCardColor;
+
+                & input[type="text"] {
+                    border: none;
+                    background-color: transparent;
+                    width: auto;
+                    outline: none;
+                    width: 100%;
+                    font-size: large;
+                }
+
+                &:focus-within {
+                    border: 2px solid lightseagreen;
+                    transform: scale(1.01);
+                }
+
+                & img {
+                    cursor: pointer;
+                }
+
+
+            }
+
+            .addproduct {
+                background-color: var.$backgroundCardColor;
+                border: 1px solid gray;
+                border-radius: 0.2rem;
+                border: 1px solid gray;
+                width: fit-content;
+                padding: 10px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                &__item {
+
+                    color: green;
+
+                    &:link,
+                    &:visited {
+                        text-decoration: none;
+                        color: green;
+                    }
+                }
+
 
 
             }
@@ -47,6 +99,7 @@ $_padding: 10vw;
 
 
         .gallery {
+            margin-top: 1vh;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
