@@ -11,6 +11,8 @@
     width: 100%;
     padding: 1vW;
     gap: 2vh;
+    margin-top: auto;
+
 
     .social {
 
@@ -25,9 +27,4 @@
         }
     }
 
-    &--about,
-    &--contact,
-    &--addproduct {
-        margin-top: auto;
-    }
 }

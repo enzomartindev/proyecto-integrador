@@ -29,26 +29,79 @@
         </nav>
     </header>
 
-    <main class="main">
-        <section class="section">
+    <main class="main main__contact">
+        <section class="section__contact">
 
+            <section class="section__data">
+                <h2 class="section__data--title">Nuestros datos:</h2>
+                <ul class="contact__data">
+                    <li>📱 Teléfono: +54 011 1531231832</li>
+                    <li>📧 Email: contact@tinchostore.com</li>
+                    <li>🏢 Domicilo: Av. del Libertador 99299 - Nuñez</li>
+                </ul>
+                <p>También podes contactarnos a través de nuestras redes sociales:</p>
+                <ul class="contact__networks">
+                    <li class="contact__networks--item"><img src="./images/socialnetworks/facebook.png"
+                            alt="Facebook">Tincho Store</li>
+                    <li class="contact__networks--item"><img src="./images/socialnetworks/instagram.png"
+                            alt="Instagram">@TinchoStore</li>
+                    <li class="contact__networks--item"><img src="./images/socialnetworks/twitter.png"
+                            alt="Twitter">@TinchoStore</li>
+                </ul>
+            </section>
+
+            <section class="section__sendemail">
+                <form action="">
+                    <h2>Envianos tu consulta!</h2>
+                    <div class="section__sendemail--submit">
+                        <div class="section__sendemail--data">
+                            <label for="name_id">Tu Nombre:</label>
+                            <input class="data" type="text" name="name" id="name_id" minlength="5" maxlength="35"
+                                placeholder="Ingresa tu nombre" required>
+                        </div>
+                        <div class="section__sendemail--data">
+                            <label for="email_id">Tu e-mail:</label>
+                            <input class="data" type="email" name="email" id="email_id" placeholder="Ingresa tu Email">
+                        </div>
+                        <div class="section__sendemail--data">
+                            <label for="consultation_id">Tu consulta:</label>
+                            <textarea name="consultation" id="consultation_id" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="section_sendemail--button">
+                            <button type="submit" id="completar-A">Enviar</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </section>
+
+        <section class="section__location">
+            <h3 class="section__location--title">¿Dónde estamos?</h3>
+            <p class="section__about--text">Visitanos en Av. del Libertador 99299, Nuñez</p>
+            <div class="section__location--map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3286.43672965247!2d-58.46516422346555!3d-34.54249615426901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb42072357809%3A0x1ef838cd918db7e!2sAv.%20del%20Libertador%207836%2C%20C1429BMY%20CABA!5e0!3m2!1ses-419!2sar!4v1700357669670!5m2!1ses-419!2sar"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </section>
     </main>
 
-    <footer class="footer footer--contact">
+    <footer class="footer">
         <div class="social">
             <p>Nuestras redes</p>
             <div class="social__networks">
                 <a title="Facebook" href="https://www.facebook.com" target="_blank"><img
-                        src="./images/socialnetworks/facebook.png" alt="Facebook" /></a>
-                <a title="Facebook" href="https://www.instagram.com" target="_blank"><img
-                        src="./images/socialnetworks/instagram.png" alt="instagram" /></a>
-                <a title="Facebook" href="https://web.whatsapp.com/" target="_blank"><img
-                        src="./images/socialnetworks/whatsapp.png" alt="Whatsapp" /></a>
+                        src="./images/socialnetworks/facebook.png" alt="Facebook"></a>
+                <a title="Instagram" href="https://www.instagram.com" target="_blank"><img
+                        src="./images/socialnetworks/instagram.png" alt="instagram"></a>
+                <a title="X" href="https://x.com" target="_blank"><img src="./images/socialnetworks/twitter.png"
+                        alt="Twitter"></a>
             </div>
         </div>
         <span>&copy;2023 Tincho Store - Todos los derechos reservados</span>
     </footer>
+
 
     <script src="./js/main.js"></script>
 </body>

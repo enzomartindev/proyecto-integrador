@@ -1,2 +1,65 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
+
+.main__contact {
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+
+    .section__contact {
+
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        padding: 1vh;
+
+        &--text {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        }
+
+        .section__data {
+            display: flex;
+            flex-direction: column;
+            gap: 1vh;
+
+            .contact__networks {
+
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                &--item {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+                }
+            }
+        }
+    }
+
+    .section__sendemail {
+
+        &--submit {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &--data{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            margin-bottom: 5px;
+        }
+    }
+
+    .section__location {
+
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+        align-items: center;
+        gap: 1vh;
+
+
+    }
+
+}
