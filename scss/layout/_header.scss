@@ -14,6 +14,7 @@ $_paddingY: 0vh;
     gap: 3vw;
     width: 100%;
     height: var.$headerHeight;
+    z-index: 100;
 
     &__store {
         display: flex;

@@ -23,6 +23,11 @@ $_cardImgHeight: 250px;
         border-top: 1px solid lightgray;
         color: green;
         padding-top: $_paddingTopCardElement;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        display: -webkit-box;
+        overflow: hidden;
+
     }
 
     &__text {
@@ -33,19 +38,10 @@ $_cardImgHeight: 250px;
         -webkit-line-clamp: 4;
         display: -webkit-box;
         overflow: hidden;
-        /*
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        color: rgba(0, 0, 0, .9);
-        display: -webkit-box;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 18px;
-        margin-top: 12px;
-        max-height: 50px;
-        overflow: hidden;
-        text-decoration: none;
-        */
+        height: min-content;
+        margin-top: auto;
+        font-size: small;
+
 
     }
 
@@ -54,6 +50,7 @@ $_cardImgHeight: 250px;
         padding-top: $_paddingTopCardElement;
         text-align: center;
         font-weight: bold;
+        margin-top: auto;
 
         &::before {
             content: "$ ";
@@ -67,7 +64,9 @@ $_cardImgHeight: 250px;
         display: flex;
         flex-direction: row;
         align-self: center;
+        justify-self: end;
         gap: 0.5vw;
+        margin-top: auto;
 
     }
 
@@ -76,6 +75,7 @@ $_cardImgHeight: 250px;
         display: flex;
         flex-direction: column;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
 
 
         &:hover {
