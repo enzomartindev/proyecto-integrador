@@ -15,3 +15,9 @@
     color: $color;
 
 }
+
+@mixin alert-display($backgroundColor, $color) {
+    background-color: $backgroundColor;
+    color: $color;
+
+}

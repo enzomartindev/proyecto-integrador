@@ -7,6 +7,9 @@
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
+    gap: 5vw;
+    height: fit-content;
+    height: auto;
 
     .section__contact {
 
@@ -23,15 +26,20 @@
             display: flex;
             flex-direction: column;
             gap: 1vh;
+            justify-content: center;
 
             .contact__networks {
 
                 display: flex;
                 flex-direction: column;
-                gap: 5px;
 
                 &--item {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 5px;
+
+
                 }
             }
         }
@@ -39,14 +47,15 @@
 
     .section__sendemail {
 
+
         &--submit {
             display: flex;
             flex-direction: column;
         }
 
-        &--data{
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
+        &--data {
+            display: flex;
+            flex-direction: column;
             margin-bottom: 5px;
         }
     }

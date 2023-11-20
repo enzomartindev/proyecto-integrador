@@ -1,0 +1,36 @@
+@use "../asbtracts/variables" as var;
+@use "../asbtracts/mixins" as mix;
+
+.alert {
+    margin-top: 0.25em;
+    padding: 0.25em;
+    font-size: 0.75em;
+    display: none;
+    justify-content: space-between;
+
+    &__close {
+        align-self: center;
+        font-size: 0.75em;
+        cursor: pointer;
+    }
+}
+
+.alert--success {
+    @include mix.alert-display(var.$alertSuccessBackground, var.$alertSuccesscolor);
+    border: var.$alertSuccessborder;
+
+}
+
+.alert--danger {
+    @include mix.alert-display(var.$alertDangerBackground, var.$alertDangercolor);
+    border: var.$alertDangerborder;
+
+}
+
+.alert--show {
+    display: flex;
+}
+
+.alert--hide {
+    display: none;
+}

@@ -11,6 +11,8 @@
     <title>Tincho Store</title>
 
     <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./css/main.css">
 </head>
 
@@ -31,7 +33,6 @@
 
     <main class="main main__contact">
         <section class="section__contact">
-
             <section class="section__data">
                 <h2 class="section__data--title">Nuestros datos:</h2>
                 <ul class="contact__data">
@@ -39,15 +40,21 @@
                     <li>📧 Email: contact@tinchostore.com</li>
                     <li>🏢 Domicilo: Av. del Libertador 99299 - Nuñez</li>
                 </ul>
-                <p>También podes contactarnos a través de nuestras redes sociales:</p>
-                <ul class="contact__networks">
-                    <li class="contact__networks--item"><img src="./images/socialnetworks/facebook.png"
-                            alt="Facebook">Tincho Store</li>
-                    <li class="contact__networks--item"><img src="./images/socialnetworks/instagram.png"
-                            alt="Instagram">@TinchoStore</li>
-                    <li class="contact__networks--item"><img src="./images/socialnetworks/twitter.png"
-                            alt="Twitter">@TinchoStore</li>
-                </ul>
+                <h4>También podes contactarnos a través de nuestras redes sociales:</h4>
+                <div class="contact__networks">
+                    <div class="contact__networks--item">
+                        <img src="./images/socialnetworks/facebook.png" alt="Facebook">
+                        <p>Tincho Store</p>
+                    </div>
+                    <div class="contact__networks--item">
+                        <img src="./images/socialnetworks/instagram.png" alt="Instagram">
+                        <p>TinchoStoreArg</p>
+                    </div>
+                    <div class="contact__networks--item">
+                        <img src="./images/socialnetworks/twitter.png" alt="Twitter">
+                        <p>TinchoStoreOK</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section__sendemail">
@@ -55,20 +62,26 @@
                     <h2>Envianos tu consulta!</h2>
                     <div class="section__sendemail--submit">
                         <div class="section__sendemail--data">
-                            <label for="name_id">Tu Nombre:</label>
-                            <input class="data" type="text" name="name" id="name_id" minlength="5" maxlength="35"
-                                placeholder="Ingresa tu nombre" required>
+                            <label for="id-name">Tu Nombre:</label>
+                            <input class="data" type="text" name="name" id="id-name">
+                            <span class="input-error"></span>
                         </div>
                         <div class="section__sendemail--data">
-                            <label for="email_id">Tu e-mail:</label>
-                            <input class="data" type="email" name="email" id="email_id" placeholder="Ingresa tu Email">
+                            <label for="id-email">Tu e-mail:</label>
+                            <input class="data" type="text" name="email" id="id-email">
+                            <span class="input-error"></span>
                         </div>
                         <div class="section__sendemail--data">
-                            <label for="consultation_id">Tu consulta:</label>
-                            <textarea name="consultation" id="consultation_id" cols="30" rows="10"></textarea>
+                            <label for="id-query">Tu consulta:</label>
+                            <textarea name="query" id="id-query" cols="30" rows="10"></textarea>
+                            <span class="input-error"></span>
+                            <div class="alert">
+                                <p class="alert__text"></p>
+                                <span class="alert__close material-symbols-outlined">close</span>
+                            </div>
                         </div>
                         <div class="section_sendemail--button">
-                            <button type="submit" id="completar-A">Enviar</button>
+                            <button type="button" id="id-send">Enviar</button>
                         </div>
                     </div>
                 </form>
@@ -101,8 +114,7 @@
         </div>
         <span>&copy;2023 Tincho Store - Todos los derechos reservados</span>
     </footer>
-
-
+    
     <script src="./js/main.js"></script>
 </body>
 
