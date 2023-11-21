@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Esta página es una tienda de x cosa">
+    <meta name="description" content="La mejor tienda de electrodomésticos">
     <meta name="keywords" content="tienda, proyecto, proyecto integrador">
     <meta name="author" content="Enzo Martín Alfonso Flores">
 
@@ -29,13 +29,80 @@
         </nav>
     </header>
 
-    <main class="main">
-        <section class="section">
-
-            <h2>Agregar producto</h2>
-
+    <main class="main main__addproduct">
+        <section class="section__addproduct">
+            <h2 class="section__addproduct--title">Agregar producto</h2>
+            <form class="section__addproduct__form" action="">
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-name">Nombre del producto:</label>
+                    <input class="data data__input" type="text" name="name" id="id-name">
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-price">Precio:</label>
+                    <input class="data data__input" type="text" name="price" id="id-price">
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-stock">Stock:</label>
+                    <input class="data data__input" type="text" name="stock" id="id-stock">
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-brand">Marca:</label>
+                    <input class="data data__input" type="text" name="brand" id="id-brand">
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-category">Categoría:</label>
+                    <input class="data data__input" type="text" name="category" id="id-category">
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-short-desc">Descripción corta:</label>
+                    <textarea class="data" name="short-desc" id="id-short-desc" cols="30"
+                        rows="2"></textarea>
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <label class="data" for="id-long-desc">Descripción larga:</label>
+                    <textarea class="data" name="long-desc" id="id-long-desc" cols="30"
+                        rows="5"></textarea>
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <p class="data">Origen:</p>
+                    <div class="data--origin">
+                        <input class="data" type="radio" name="origin" id="id-national" checked>
+                        <label class="data" for="id-national" >Nacional</label>
+                        <input class="data" type="radio" name="origin" id="id-imported">
+                        <label class="data" for="id-imported">Importado</label>
+                    </div>
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <div class="data delivery__info">
+                        <label class="data" for="id-delivery">Envío sin cargo:</label>
+                        <input class="data" type="checkbox" name="delivery" id="id-delivery">
+                    </div>
+                    <span class="input-error"></span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <div class="data delivery__info">
+                        <label class="data" for="id-photo">Fotografía:</label>
+                        <input class="data" type="file" name="photo" id="id-photo">
+                    </div>
+                    <span class="input-error"></span>
+                </div>
+                <div class="alert">
+                    <p class="alert__text"></p>
+                    <span class="alert__close material-symbols-outlined">close</span>
+                </div>
+                <div class="section__addproduct__form--data">
+                    <button type="button" id="id-save">Guardar</button>
+                </div>
+            </form>
         </section>
-
     </main>
 
     <footer class="footer">
@@ -54,7 +121,7 @@
     </footer>
 
 
-    <script src="./js/main.js"></script>
+    <script src="./js/addproduct.js"></script>
 </body>
 
 </html>

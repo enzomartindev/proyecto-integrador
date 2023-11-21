@@ -72,3 +72,64 @@
     }
 
 }
+
+/*media*/
+
+
+
+@media (max-width: 1280px) {
+
+    .main__contact {
+
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+
+        .section__contact {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    }
+
+    .section__location {
+
+
+        iframe {
+            width: 50vw;
+            height: 30vh;
+        }
+
+
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .main__contact {
+
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+
+        .section__contact {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    }
+
+    .section__location {
+
+
+        iframe {
+            width: 80vw;
+            height: 30vh;
+        }
+
+
+    }
+}
