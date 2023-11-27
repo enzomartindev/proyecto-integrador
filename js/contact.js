@@ -1,4 +1,3 @@
-/* ************** Alertas de tipo toast ************** */
 const alert = document.querySelector(".alert");
 const alertText = document.querySelector(".alert__text");
 const alertClose = document.querySelector(".alert__close");
@@ -31,11 +30,11 @@ let validationStatus = [false, false, false];
 
 const regexName = /\b[a-zA-Z]{2,50}\b/; //Que contenga un string de al menos 2 letras
 const regexEmail = /^[a-z0-9._]+@[a-z0-9-]+.(com$|com.[a-z0-9]{2}$)/;//valida formato de mail 
-const regexQuery = /(\S+\s*){10,}/;//que contenga al menos 10 palabras
+const regexQuery = /^.{10,}$/;//que contenga al menos 10 caracteres
 
 function validateName() {
     if (!regexName.test(inputName.value)) {
-        inputName.nextElementSibling.innerText = "El nombre ingresado es invalido";
+        inputName.nextElementSibling.innerText = "El nombre ingresado es inválido";
         validationStatus[0] = false;
     } else {
         inputName.nextElementSibling.innerText = "";
@@ -46,7 +45,7 @@ function validateName() {
 
 function validateEmail() {
     if (!regexEmail.test(inputEmail.value)) {
-        inputEmail.nextElementSibling.innerText = "El email ingresado es invalido";
+        inputEmail.nextElementSibling.innerText = "El email ingresado es inválido";
         validationStatus[0] = false;
     } else {
         inputEmail.nextElementSibling.innerText = "";
@@ -56,7 +55,7 @@ function validateEmail() {
 
 function validateQuery() {
     if (!regexQuery.test(inputQuery.value)) {
-        inputQuery.nextElementSibling.innerText = "Ingresá al menos 10 palabras";
+        inputQuery.nextElementSibling.innerText = "Ingresá al menos 10 caracteres";
         validationStatus[2] = false;
     } else {
         inputQuery.nextElementSibling.innerText = "";

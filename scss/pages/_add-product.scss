@@ -9,22 +9,24 @@
 
     .section__addproduct {
 
+        display: flex;
+        flex-direction: column;
         border: 1px solid grey;
         background-color: var.$backgroundCardColor;
         border-radius: 15px;
         width: 50vw;
+        justify-items: center;
 
         &--title {
             color: var.$backgroundHeaderColor;
             text-align: center;
             margin: 2vh 0 2vh 0;
-
         }
 
         &__form {
-            display: flex;
-            flex-direction: column;
             margin: 1vh;
+            width: 80%;
+            align-self: center;
 
             &--data {
                 display: flex;
@@ -33,7 +35,8 @@
                 justify-content: start;
                 border-radius: 5px;
                 margin-top: 5px;
-                width: 80%;
+                width: 100%;
+
 
                 button {
                     width: min-content;
@@ -44,16 +47,30 @@
                 }
 
                 .data {
-                    width: 50%;
+                    width: 100%;
                     align-self: center;
 
-                    &--origin {
-
+                    &__origin {
                         display: flex;
-                        width: 50%;
-                        align-self: center;
-                        gap: 5px;
+                        flex-direction: row;
+                        width: min-content;
+                        align-self: left;
                         margin-top: 5px;
+                        gap: 5px;
+
+                        &--options {
+                            display: flex;
+                            flex-direction: row;
+                            font-size: small;
+                            gap: 10px;
+                        }
+
+                        &--option {
+                            display: flex;
+                            flex-direction: row;
+                            gap: 1px;
+                        }
+
 
                         input[type="radio"] {
                             width: min-content;
@@ -67,17 +84,39 @@
                     display: flex;
                     flex-direction: row;
 
-                    input[type="checkbox"] {
-                        width: min-content;
+                    label {
+                        width: fit-content;
+                        margin-right: 5px;
                     }
 
+                    input[type="checkbox"] {
+                        width: min-content;
 
+                    }
+
+                }
+
+                .photo {
+                    display: flex;
+                    flex-direction: row;
+
+                    label {
+                        width: fit-content;
+                        margin-right: 5px;
+                    }
                 }
 
                 .data__input {
                     height: 3vh;
                     outline: none;
+                }
 
+                textarea {
+                    resize: vertical;
+                }
+
+                button {
+                    margin-top: 2vh;
                 }
 
 
@@ -98,7 +137,7 @@
     .main__addproduct {
         .section__addproduct {
 
-            width: 80%;
+            width: 70%;
 
             &__form {
                 &--data {

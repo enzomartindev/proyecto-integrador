@@ -102,3 +102,42 @@ function pageLoad() {
 
 
 pageLoad();
+
+
+/*INTENTO DE BUSCADOR */
+
+const cardsToShow = document.querySelectorAll(".card--product");
+const searchText = document.getElementById("id-search-product");
+
+searchButton.onclick = searchProducts;
+searchText.addEventListener("keydown", function (event) {
+    if (event.keyCode === 13 || event.key === 'Enter') {
+        searchProducts();
+    }
+}
+);
+
+
+
+function searchProducts() {
+
+    for (let i = 0; i < cardsToShow.length; i++) {
+
+        let prodTitle = cardsToShow[i].children[1].innerText;
+
+        prodTitle = prodTitle.toLowerCase();
+        searchText.value = searchText.value.toLowerCase();
+
+        if (searchText.value == "") {
+            cardsToShow[i].style.display = "flex";
+        }
+
+        if (prodTitle.match(searchText.value)) {
+
+            cardsToShow[i].style.display = "flex";
+
+        } else {
+            cardsToShow[i].style.display = "none";
+        }
+    }
+}
