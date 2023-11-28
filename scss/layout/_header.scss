@@ -48,13 +48,11 @@ $_paddingY: 0vh;
     }
 
     .cart__added {
-        background-color: red;
-        color: white;
+        background-color: var.$errorColor;
+        color: var.$white;
         border-radius: 100%;
         width: 20px;
         height: 20px;
         text-align: center;
     }
-
-
 }

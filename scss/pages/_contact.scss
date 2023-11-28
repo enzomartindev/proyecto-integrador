@@ -23,22 +23,20 @@
         }
 
         .section__data {
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
             gap: 1vh;
             justify-content: center;
 
             .contact__networks {
 
-                display: flex;
-                flex-direction: column;
+                @include mix.displayFlex(column);
+                gap: 0.5vh;
 
                 &--item {
                     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                     display: flex;
                     align-items: flex-end;
                     gap: 5px;
-
 
                 }
             }
@@ -47,18 +45,16 @@
 
     .section__sendemail {
 
-
         &--submit {
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
+            margin-top: 1vh;
         }
 
         &--data {
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
             margin-bottom: 5px;
 
-            textarea{
+            textarea {
                 resize: vertical;
             }
         }
@@ -66,12 +62,10 @@
 
     .section__location {
 
-        display: flex;
-        flex-direction: column;
+        @include mix.displayFlex(column);
         width: fit-content;
         align-items: center;
         gap: 1vh;
-
 
     }
 
@@ -79,33 +73,25 @@
 
 /*media*/
 
-
-
 @media (max-width: 1280px) {
 
     .main__contact {
 
-        display: flex;
-        flex-direction: column;
+        @include mix.displayFlex(column);
         gap: 1vh;
 
         .section__contact {
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
+            gap: 2vh;
         }
-
-
     }
 
     .section__location {
-
 
         iframe {
             width: 50vw;
             height: 30vh;
         }
-
-
     }
 
 }
@@ -113,27 +99,20 @@
 @media (max-width: 768px) {
 
     .main__contact {
-
-        display: flex;
-        flex-direction: column;
+        @include mix.displayFlex(column);
         gap: 1vh;
 
         .section__contact {
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
+            gap: 2vh;
         }
-
-
     }
 
     .section__location {
-
 
         iframe {
             width: 80vw;
             height: 30vh;
         }
-
-
     }
 }

@@ -21,3 +21,8 @@
     color: $color;
 
 }
+
+@mixin displayFlex($direction){
+    display: flex;
+    flex-direction: $direction;
+}

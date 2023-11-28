@@ -3,8 +3,52 @@ let cart = document.querySelector('.cart__counter');
 let addToCartButtons = document.querySelectorAll(".button--add");
 let removeFromCartButtons = document.querySelectorAll(".button--remove");
 let searchButton = document.getElementById("search-icon");
+const cardText = document.querySelectorAll(".card__text");
 
+/*------------------ellipsis----------------*/
 
+//funcion que devuelve si el elemento text de las cards tiene overflow
+function tieneDesbordamientoVertical(elemento) {
+    return elemento.scrollHeight > elemento.clientHeight;
+}
+
+//Le agrego el botón ver más a cada card con text overflow
+function loadEllipsisButtons() {
+    for (let i = 0; i < cardText.length; i++) {
+
+        if (tieneDesbordamientoVertical(cardText[i])) {
+
+            var buttonShow = document.createElement("button");
+            cardText[i].appendChild(buttonShow)
+            buttonShow.innerHTML = "Ver más";
+            buttonShow.classList.add("showMore")
+        }
+    }
+    //busco todos los botones creados y le agrego la funcion a ejecutar en el evento onclick
+    const btnShow = document.querySelectorAll(".showMore");
+
+    for (let j = 0; j < btnShow.length; j++) {
+
+        btnShow[j].onclick = show;
+    }
+}
+
+function show() {
+    this.parentNode.classList.add("card__text--long");
+    this.onclick = hide;
+    this.innerHTML = "Ver menos";
+}
+
+function hide() {
+    this.parentNode.classList.remove("card__text--long");
+    this.innerHTML = "Ver más";
+    this.onclick = show;
+
+}
+
+loadEllipsisButtons();
+
+/*---------Funcionalidad del carrito tarjetas----------------------*/
 
 function addtoCart() {
     cartCounter("+");

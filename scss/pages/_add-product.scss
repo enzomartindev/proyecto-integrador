@@ -3,15 +3,13 @@
 
 .main__addproduct {
 
-    display: flex;
-    flex-direction: column;
+    @include mix.displayFlex(column);
     align-items: center;
 
     .section__addproduct {
 
-        display: flex;
-        flex-direction: column;
-        border: 1px solid grey;
+        @include mix.displayFlex(column);
+        border: 1px solid var.$disabledColor;
         background-color: var.$backgroundCardColor;
         border-radius: 15px;
         width: 50vw;
@@ -29,14 +27,12 @@
             align-self: center;
 
             &--data {
-                display: flex;
-                flex-direction: column;
-                align-self: center;
+
+                @include mix.displayFlex(column);
                 justify-content: start;
                 border-radius: 5px;
                 margin-top: 5px;
                 width: 100%;
-
 
                 button {
                     width: min-content;
@@ -51,38 +47,31 @@
                     align-self: center;
 
                     &__origin {
-                        display: flex;
-                        flex-direction: row;
+                        @include mix.displayFlex(row);
                         width: min-content;
-                        align-self: left;
                         margin-top: 5px;
                         gap: 5px;
 
                         &--options {
-                            display: flex;
-                            flex-direction: row;
+                            @include mix.displayFlex(row);
                             font-size: small;
                             gap: 10px;
                         }
 
                         &--option {
-                            display: flex;
-                            flex-direction: row;
+                            @include mix.displayFlex(row);
                             gap: 1px;
                         }
-
 
                         input[type="radio"] {
                             width: min-content;
                         }
-
                     }
                 }
 
                 .delivery__info {
 
-                    display: flex;
-                    flex-direction: row;
+                    @include mix.displayFlex(row);
 
                     label {
                         width: fit-content;
@@ -91,14 +80,11 @@
 
                     input[type="checkbox"] {
                         width: min-content;
-
                     }
-
                 }
 
                 .photo {
-                    display: flex;
-                    flex-direction: row;
+                    @include mix.displayFlex(row);
 
                     label {
                         width: fit-content;
@@ -118,16 +104,9 @@
                 button {
                     margin-top: 2vh;
                 }
-
-
             }
-
-
-
         }
     }
-
-
 }
 
 

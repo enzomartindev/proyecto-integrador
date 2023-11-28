@@ -37,14 +37,14 @@ $_padding: 10vw;
             &--input {
 
                 display: flex;
-
+                outline: none;
+                background-color: var.$backgroundCardColor;
+                border: 1px solid var.$disabledColor;
+                box-shadow: var.$cardProductShadow;
                 font-size: 1.2rem;
                 border-radius: 0.2rem;
-                border: 1px solid gray;
-                outline: none;
-                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 padding: 10px;
-                background-color: var.$backgroundCardColor;
+
 
                 & input[type="text"] {
                     border: none;
@@ -56,7 +56,7 @@ $_padding: 10vw;
                 }
 
                 &:focus-within {
-                    border: 1px solid lightseagreen;
+                    border: 1px solid var.$searchFocusBorder;
                     transform: scale(1.01);
                 }
 
@@ -64,17 +64,15 @@ $_padding: 10vw;
                     cursor: pointer;
                 }
 
-
             }
 
             .addproduct {
                 background-color: var.$backgroundCardColor;
-                border: 1px solid gray;
+                border: 1px solid var.$disabledColor;
                 border-radius: 0.2rem;
-                border: 1px solid gray;
                 width: fit-content;
                 padding: 10px;
-                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                box-shadow:var.$cardProductShadow;
 
 
                 &:hover {
@@ -83,29 +81,24 @@ $_padding: 10vw;
 
                 &__item {
 
-                    color: green;
+                    color: var.$successColor;
 
                     &:link,
                     &:visited {
                         text-decoration: none;
-                        color: green;
+                        color: var.$successColor;
                     }
                 }
 
-
-
             }
         }
-
 
         .gallery {
             margin-top: 1vh;
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 1rem;
-
         }
-
 
     }
 }

@@ -29,33 +29,29 @@
 
     &--add {
 
-        @include mix.button-default(white, white, darkgreen);
+        @include mix.button-default(var.$white, var.$white, var.$successColor);
 
         &:hover,
         &:active {
-            @include mix.button-active(darkgreen, lightgreen, white);
+            @include mix.button-active(darkgreen, lightgreen, var.$white);
             transform: scale(1.2);
             transition: all 150ms;
         }
-
     }
 
     &--remove {
 
-        @include mix.button-default(white, white, red);
+        @include mix.button-default(var.$white, var.$white, var.$errorColor);
 
         &:hover,
         &:active {
-            @include mix.button-active(darkred, red, white);
+            @include mix.button-active(darkred, red, var.$white);
             transform: scale(1.2);
-
         }
     }
 
     &--disabled {
-        @include mix.button-default(white, white, gray);
+        @include mix.button-default(white, white, var.$disabledColor);
         cursor: default;
-
-
     }
 }

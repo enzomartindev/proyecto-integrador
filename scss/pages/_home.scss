@@ -1,8 +1,6 @@
 @use "../asbtracts/variables" as var;
 @use "../asbtracts/mixins" as mix;
 
-
-
 @media (max-width: 1280px) {
 
     .home {
@@ -18,8 +16,6 @@
 
     }
 }
-
-
 
 @media (max-width: 992px) {
 
@@ -38,12 +34,11 @@
 }
 
 @media (max-width: 768px) {
-.home {
+    .home {
 
         .header {
 
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
             align-items: center;
             height: var.$headerHeight768px;
 
@@ -83,8 +78,7 @@
                 }
 
                 .search__form {
-                    display: flex;
-                    flex-direction: column;
+                    @include mix.displayFlex(column);
 
                     .addproduct {
                         align-self: center;
@@ -125,8 +119,7 @@
 
         .header {
 
-            display: flex;
-            flex-direction: column;
+            @include mix.displayFlex(column);
             align-items: center;
             height: var.$headerHeight480px;
 
@@ -145,7 +138,7 @@
                 }
             }
 
-            .cart{
+            .cart {
                 position: absolute;
                 left: 80%;
                 top: 50%;
@@ -159,13 +152,12 @@
 
             .section {
 
-                .slider{
+                .slider {
                     height: 10vh;
                 }
 
                 .search__form {
-                    display: flex;
-                    flex-direction: column;
+                    @include mix.displayFlex(column);
 
                     .addproduct {
                         align-self: center;
@@ -181,11 +173,11 @@
                 grid-template-columns: repeat(1, 1fr);
                 gap: 1rem;
 
-                .card{
+                .card {
 
-                    &--product{
+                    &--product {
 
-                        &:hover{
+                        &:hover {
                             transform: none;
                         }
                     }

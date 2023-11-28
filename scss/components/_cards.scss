@@ -16,24 +16,34 @@ $_cardImgHeight: 250px;
         width: 100%;
         height: $_cardImgHeight;
         object-fit: contain;
-
     }
 
     &__title {
-        border-top: 1px solid lightgray;
-        color: green;
+        border-top: 1px solid var.$cardSeparatorColor;
+        color: var.$cardTitleColor;
         padding-top: $_paddingTopCardElement;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
         display: -webkit-box;
         overflow: hidden;
-
     }
 
     &__text {
         padding-top: $_paddingTopCardElement;
         color: var.$backgroundHeaderColor;
-        /**/
+
+        .showMore {
+            position: absolute;
+            border: none;
+            background-color: transparent;
+            font-weight: bold;
+            right: auto;
+            cursor: pointer;
+        }
+
+    }
+
+    &__text--short {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 4;
         display: -webkit-box;
@@ -41,7 +51,16 @@ $_cardImgHeight: 250px;
         height: min-content;
         margin-top: auto;
         font-size: small;
+    }
 
+    &__text--long {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        display: -webkit-box;
+        overflow:auto;
+        height: min-content;
+        margin-top: auto;
+        font-size: small;
 
     }
 
@@ -57,7 +76,6 @@ $_cardImgHeight: 250px;
         }
     }
 
-
     &__addcart {
 
         padding-top: $_paddingTopCardElement;
@@ -67,24 +85,19 @@ $_cardImgHeight: 250px;
         justify-self: end;
         gap: 0.5vw;
         margin-top: auto;
-
     }
 
     &--product {
         border-radius: 15px;
         display: flex;
         flex-direction: column;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-
+        box-shadow: var.$cardProductShadow;
 
         &:hover {
             cursor: pointer;
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+            box-shadow: var.$cardProductHoverShadow;
             transition: all 300ms;
             transform: scale(1.01);
         }
-
     }
-
 }

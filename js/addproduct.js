@@ -46,6 +46,7 @@ function validateName() {
     } else {
         inputName.nextElementSibling.innerText = "";
         inputName.classList.remove("input-invalid");
+        inputName.classList.add("input-valid");
         return true;
     }
 }
@@ -59,6 +60,7 @@ function validatePrice() {
     } else {
         inputPrice.nextElementSibling.innerText = "";
         inputPrice.classList.remove("input-invalid");
+        inputPrice.classList.add("input-valid");
         return true;
     }
 }
@@ -72,6 +74,7 @@ function validateStock() {
     } else {
         inputStock.nextElementSibling.innerText = "";
         inputStock.classList.remove("input-invalid");
+        inputStock.classList.add("input-valid");
         return true;
     }
 }
@@ -86,6 +89,7 @@ function validateBrand() {
     } else {
         inputBrand.nextElementSibling.innerText = "";
         inputBrand.classList.remove("input-invalid");
+        inputBrand.classList.add("input-valid");
         return true;
     }
 }
@@ -99,6 +103,7 @@ function validateCategory() {
     } else {
         inputCategory.nextElementSibling.innerText = "";
         inputCategory.classList.remove("input-invalid");
+        inputCategory.classList.add("input-valid");
         return true;
     }
 }
@@ -112,6 +117,7 @@ function validateShortDesc() {
     } else {
         inputShortDesc.nextElementSibling.innerText = "";
         inputShortDesc.classList.remove("input-invalid");
+        inputShortDesc.classList.add("input-valid");
         return true;
     }
 }
@@ -125,6 +131,7 @@ function validateLongDesc() {
     } else {
         inputLongDesc.nextElementSibling.innerText = "";
         inputLongDesc.classList.remove("input-invalid");
+        inputLongDesc.classList.add("input-valid");
         return true;
     }
 }
@@ -133,13 +140,10 @@ function validatePhoto() {
 
     if (inputPhoto.value == "") {
         inputPhoto.parentNode.nextElementSibling.innerText = "Debe seleccionar una fotografía";
-        inputPhoto.classList.add("input-invalid");
-
         return false;
 
     } else {
         inputPhoto.parentNode.nextElementSibling.innerText = "";
-        inputPhoto.classList.remove("input-invalid");
         return true;
     };
 }

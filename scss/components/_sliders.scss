@@ -9,7 +9,6 @@ $_width: 100%;
     width: calc($_width * 3);
     display: flex;
 
-
     animation-name: move-slide;
     animation-duration: 18s;
     animation-timing-function: ease-in-out;
@@ -21,20 +20,11 @@ $_width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
-
-
     }
-
-    /*&__title{
-        position: absolute;
-        font-size: 2rem;
-        color: white;
-    }*/
 
     &__image {
         width: 100%;
         object-fit: cover;
-        //object-position: center;
     }
 
     @keyframes move-slide {

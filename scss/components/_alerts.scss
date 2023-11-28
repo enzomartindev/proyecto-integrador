@@ -2,12 +2,12 @@
 @use "../asbtracts/mixins" as mix;
 
 .alert {
-    margin-top: 0.25em;
-    padding: 0.25em;
-    font-size: 0.75em;
     display: none;
     justify-content: space-between;
     align-self: center;
+    margin-top: 0.25em;
+    padding: 0.25em;
+    font-size: 0.75em;
     width: 100%;
 
     &__close {
@@ -20,13 +20,11 @@
 .alert--success {
     @include mix.alert-display(var.$alertSuccessBackground, var.$alertSuccesscolor);
     border: var.$alertSuccessborder;
-
 }
 
 .alert--danger {
     @include mix.alert-display(var.$alertDangerBackground, var.$alertDangercolor);
     border: var.$alertDangerborder;
-
 }
 
 .alert--show {
@@ -38,13 +36,17 @@
 }
 
 .input-error {
-    color: red;
-    position:relative;
+    color: var.$errorColor;
+    position: relative;
     margin-left: auto;
-    font-size: small;
+    font-size: 0.8rem;
 }
 
 .input-invalid {
-    border: 1px solid red;
-
+    border: 1px solid var.$errorColor;
 }
+
+.input-valid {
+    border: 1px solid var.$successColor;
+}
+
