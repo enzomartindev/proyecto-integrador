@@ -11,11 +11,25 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import { NavLink } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 
 const ProductCard = (props) => {
     const { product, setProducts, itIsOff } = props;
     const { products, removeProduct } = useProducts();
+
+    const { getProductCart, addProductCart, removeProductCart } = useContext(ShoppingCartContext);
+
+    const getCardAmount = ()=> {
+
+        const productLS = getProductCart(product.id);
+
+        if (productLS) {
+            return productLS.amount;
+        }
+        return 0;
+
+    };
 
     useEffect(() => {
         if (products?.length > 0) {
@@ -48,9 +62,11 @@ const ProductCard = (props) => {
                 {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * itIsOff )}`}</p>}
             </CardContent>
             <CardActions className="product-card__actions">
-                <Button color="danger"><RemoveIcon/></Button>
-                <span>0</span>
-                <Button><AddIcon/></Button>
+                <Button
+                    color="danger"
+                    onClick={()=> removeProductCart(product)}><RemoveIcon/></Button>
+                <span>{getCardAmount()}</span>
+                <Button onClick={()=> addProductCart(product)}><AddIcon/></Button>
             </CardActions>
         </Card>
     );

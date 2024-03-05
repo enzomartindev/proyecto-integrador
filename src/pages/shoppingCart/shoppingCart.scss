@@ -1,0 +1,23 @@
+.shoppingCart {
+
+
+    .shoppingCart_section {
+
+        display: flex;
+        flex-direction: column;
+
+        &--item {
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background-color: beige;
+            width: 100%;
+
+            &--img {
+
+                width: 50px;
+            }
+        }
+    }
+
+}

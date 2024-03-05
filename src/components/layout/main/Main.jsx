@@ -6,8 +6,10 @@ import Home from "../../../pages/home/Home";
 import About from "../../../pages/about/About";
 import Contact from "../../../pages/contact/Contact";
 import Product from "../../../pages/product/Product";
+import ShoppingCart from "../../../pages/shoppingCart/ShoppingCart";
 
 const Main = () => {
+
     return (
         <Box
             component="main"
@@ -28,6 +30,9 @@ const Main = () => {
                 <Route
                     path="/product/:id"
                     element={<Product/>}/>
+                <Route
+                    path="/shoppingCart"
+                    element={<ShoppingCart/>}/>
             </Routes>
         </Box>
     );
