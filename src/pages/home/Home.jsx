@@ -16,15 +16,14 @@ const Home = () => {
             <Box
                 component="section"
                 className="home__section">
-
+                <h3>Productos</h3>
                 <Box className="home__section__search">
-                    <h3>Productos</h3>
+                    <ProductCreateCard/>
                     <ProductSearch setProducts={setProducts}/>
                 </Box>
 
                 <Box
                     className="home__section__cards">
-                    <ProductCreateCard/>
                     {products?.map((product) => (
                         <ProductCard
                             key={product.id}

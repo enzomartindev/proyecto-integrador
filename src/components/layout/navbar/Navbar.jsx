@@ -19,6 +19,7 @@ import links from "../../../links/links";
 import MenuIcon from "@mui/icons-material/Menu";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { ShoppingCartContext } from "../../../contexts/ShoppingCartContext";
+import Logo from "../../logo/Logo";
 
 const Navbar = () => {
 
@@ -41,6 +42,10 @@ const Navbar = () => {
 
             <Box className="navbar__drawer-icon">
                 <MenuIcon onClick={handleOnClickOpenDrawer}/>
+            </Box>
+
+            <Box className="navbar__logo">
+                <Logo/>
             </Box>
 
             <Box className="navbar__items">

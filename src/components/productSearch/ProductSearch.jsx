@@ -60,7 +60,8 @@ const ProductSearch = (props) => {
                 onBlur={formik.handleBlur}
                 error={formik.touched.text && Boolean(formik.errors.text)}
                 errorMessage={formik.touched.text && formik.errors.text}
-                inputProps={{ maxLength: 10 }}>
+                inputProps={{ maxLength: 10 }}
+                placeholder="Buscar producto">
             </InputField>
 
             <Button type="submit"><SearchIcon/></Button>

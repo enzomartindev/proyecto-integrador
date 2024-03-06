@@ -1,8 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { Box } from "@mui/material";
 import "./shoppingCart.scss";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { useContext } from "react";
+import Button from "../../components/button/Button";
 
 //import { useRef } from "react";
 
@@ -34,8 +35,21 @@ const ShoppingCart = () => {
                         <span className="price item">{product.price}</span>
                     </li>
                 ))}
-
             </Box>
+            <Button
+                component={NavLink}
+                to="/"
+                type="button"
+                color="danger">
+                        Cancelar
+            </Button>
+            <Button
+                component={NavLink}
+                to="/"
+                type="button"
+                color="success">
+                        Confirmar Compra
+            </Button>
         </Box>
     );
 };

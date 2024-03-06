@@ -1,7 +1,9 @@
 .logo {
     img {
-        height: 4rem;
+        height: 3rem;
         width: fit-content;
+        padding: 0;
+        margin: 0;
     }
 
     @media (max-width: 650px) {

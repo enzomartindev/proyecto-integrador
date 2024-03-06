@@ -6,38 +6,40 @@
     align-items: center;
 
     width: 100%;
-    padding: 0.25rem 0.75rem 0 0.75rem;
-    background-color: var.$colorBackgroundDark;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.75);
+    padding: 0.50rem 5rem 0.50rem 5rem;
+    background-color: var.$colorBackgroundLighter;
+    border-bottom: 1px solid var.$colorBorderHeader;
 
     &__drawer-icon {
         svg {
-            fill: var.$colorBackgroundLight;
+            fill: var.$colorFontDarker;
         }
     }
+
 
     &__items {
         a {
             color: var.$colorFontDarker;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .active {
-            color: var.$colorFontLight;
-            text-shadow: 0.125rem 0.125rem 0.5rem var.$colorBorderDarker;
-
+            color: var.$colorFontLessDark;
+            border-bottom: 1px solid var.$colorFontLessDark;
+            border-radius: 0;
         }
     }
 
     &__shopping-cart {
         &__icon-badge {
             svg {
-                font-size: var.$fontSizeXL;
-                fill: var.$colorBackgroundLight;
+                font-size: var.$fontSizeXXL;
+                fill: var.$colorFontDark;
             }
 
             span {
                 color: var.$colorBackgroundLight;
-                background-color: var.$colorBackgroundDarker;
+                background-color: var.$colorBackgroundDark;
             }
         }
     }

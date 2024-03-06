@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 import "./inputField.scss";
 
 const InputField = (props) => {
-    const { label, type, multiline, rows, name, value, onChange, onBlur, error, errorMessage, inputProps } = props;
+    const { label, type, multiline, rows, name, value, onChange, onBlur, error, errorMessage, inputProps, placeholder } = props;
 
     return (
         <TextField
@@ -19,7 +19,8 @@ const InputField = (props) => {
             onBlur={onBlur}
             error={error}
             helperText={errorMessage}
-            inputProps={inputProps}/>
+            inputProps={inputProps}
+            placeholder={placeholder}/>
     );
 };
 
@@ -35,6 +36,7 @@ InputField.propTypes = {
     error: PropTypes.bool,
     errorMessage: PropTypes.string,
     inputProps: PropTypes.object,
+    placeholder: PropTypes.string,
 };
 
 InputField.defaultProps = {

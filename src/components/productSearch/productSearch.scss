@@ -1,6 +1,7 @@
 @use "../../styles/scss/variables" as var;
 
 $_width: 100%;
+$_height: 30px;
 
 .product-search {
     display: flex;
@@ -8,11 +9,11 @@ $_width: 100%;
     gap: 0.25vw;
 
     div {
-        height: 24px !important;
+        height: $_height !important;
 
         div input {
-            height: 24px !important;
-            padding: 0 14px;
+            height: $_height !important;
+            padding: 10px 20px 10px 10px;
         }
 
         p {
@@ -21,6 +22,6 @@ $_width: 100%;
     }
 
     button {
-        height: 24px !important;
+        height: $_height !important;
     }
 }
