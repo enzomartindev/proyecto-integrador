@@ -54,17 +54,21 @@ const ProductSearch = (props) => {
             onSubmit={formik.handleSubmit}>
 
             <InputField
+                className = "inputSearch"
                 name="text"
+                id="outlined-search"
+                label="Buscar Producto"
+                type="search"
                 value={formik.values.text}
                 onChange={(event) => handleOnChange(event)}
                 onBlur={formik.handleBlur}
                 error={formik.touched.text && Boolean(formik.errors.text)}
                 errorMessage={formik.touched.text && formik.errors.text}
                 inputProps={{ maxLength: 10 }}
-                placeholder="Buscar producto">
+                size="small">
             </InputField>
-
             <Button type="submit"><SearchIcon/></Button>
+
         </Box>
     );
 };

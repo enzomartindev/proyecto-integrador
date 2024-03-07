@@ -3,11 +3,11 @@ import { Button as ButtonUI } from "@mui/material";
 import "./button.scss";
 
 const Button = (props) => {
-    const { component, to, type, onClick, color, children } = props;
+    const { component, to, type, onClick, color, children, className } = props;
 
     return (
         <ButtonUI
-            className={`button ${color && `button--${color}`}`}
+            className={`button ${color && `button--${color}`} ${className}`}
             component={component}
             to={to}
             type={to ? type : null}
@@ -26,6 +26,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     color: PropTypes.string,
     children: PropTypes.node.isRequired,
+    className: PropTypes.string,
 };
 
 Button.defaultProps = {

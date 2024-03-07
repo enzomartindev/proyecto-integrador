@@ -16,10 +16,9 @@ const Home = () => {
             <Box
                 component="section"
                 className="home__section">
-                <h3>Productos</h3>
                 <Box className="home__section__search">
-                    <ProductCreateCard/>
                     <ProductSearch setProducts={setProducts}/>
+                    <ProductCreateCard/>
                 </Box>
 
                 <Box

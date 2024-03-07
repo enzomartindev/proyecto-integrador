@@ -6,7 +6,7 @@ const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
-    const { items, setItem } = useLocalStorage({ shoppingCart : [] });
+    const { items, setItem, removeItem } = useLocalStorage({ shoppingCart : [] });
 
     const getProductCart = (id) => {
         return items?.shoppingCart.find((item)=>item.id === id);
@@ -62,6 +62,11 @@ const ShoppingCartProvider = (props) =>{
 
     };
 
+    const emptyShoppingCart = () => {
+        setItem("shoppingCart", []);
+        console.log("Vaciando Carrito");
+    };
+
     return(
         <ShoppingCartContext.Provider
             value={{
@@ -69,7 +74,8 @@ const ShoppingCartProvider = (props) =>{
                 getProductCart,
                 addProductCart,
                 removeProductCart,
-                shoppingCartCounter }}>
+                shoppingCartCounter,
+                emptyShoppingCart }}>
             {children}
         </ShoppingCartContext.Provider>
     );

@@ -1,27 +1,26 @@
 @use "../../styles/scss/variables" as var;
 
 $_width: 100%;
-$_height: 30px;
+$_height: 100%;
 
 .product-search {
     display: flex;
     align-items: flex-start;
     gap: 0.25vw;
+    height: $_height;
 
     div {
-        height: $_height !important;
+        display: flex;
+        height: 100%;
+        width: 20vw;
 
-        div input {
-            height: $_height !important;
-            padding: 10px 20px 10px 10px;
-        }
-
-        p {
-            margin-left: 14px !important;
+        label {
+            color: var.$colorFontDisabled !important;
         }
     }
 
     button {
-        height: $_height !important;
+        height: 40px !important;
     }
+
 }

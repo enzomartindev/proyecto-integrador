@@ -1,0 +1,36 @@
+.table__head {
+
+    th {
+        font-weight: bold !important;
+    }
+}
+
+.productCell {
+
+    display: flex !important;
+    align-items: center;
+    gap: 5px;
+
+    .cartImage {
+        width: 25px;
+    }
+
+}
+
+.amountCell {
+
+    .shoppingCartButton {
+        padding: 0 !important;
+        min-width: 20px !important;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+
+
+.total {
+    td {
+        font-weight: bold !important;
+    }
+}
