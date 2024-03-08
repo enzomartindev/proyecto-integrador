@@ -1,8 +1,11 @@
 .shoppingCart__container {
 
+    padding: 10px;
+
     &__title {
         padding: 10px;
         align-self: center;
+        margin: 5px;
     }
 
     .shoppingCart {
@@ -10,37 +13,11 @@
         display: flex;
         gap: 10px;
 
-
-
-        .shoppingCart_section {
-
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-
-            &--item {
-
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                background-color: beige;
-                width: 100%;
-
-                &--img {
-                    width: 50px;
-                }
-            }
-        }
-
-        &__resume {
-            padding: 10px;
-        }
-
         &__actions {
             display: flex;
             justify-content: center;
             gap: 10px;
             padding: 1vh 0 0 0;
-
         }
 
     }

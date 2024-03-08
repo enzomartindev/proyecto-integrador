@@ -6,7 +6,7 @@ const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
-    const { items, setItem, removeItem } = useLocalStorage({ shoppingCart : [] });
+    const { items, setItem } = useLocalStorage({ shoppingCart : [] });
 
     const getProductCart = (id) => {
         return items?.shoppingCart.find((item)=>item.id === id);
@@ -21,6 +21,17 @@ const ShoppingCartProvider = (props) =>{
         });
 
         return total;
+    };
+
+    const getTotal = () => {
+
+        let sum = 0;
+
+        items?.shoppingCart?.forEach((product) => {
+            sum = sum + product.price * product.amount;
+        });
+
+        return(sum);
     };
 
     const addProductCart = (product) => {
@@ -75,7 +86,8 @@ const ShoppingCartProvider = (props) =>{
                 addProductCart,
                 removeProductCart,
                 shoppingCartCounter,
-                emptyShoppingCart }}>
+                emptyShoppingCart,
+                getTotal }}>
             {children}
         </ShoppingCartContext.Provider>
     );

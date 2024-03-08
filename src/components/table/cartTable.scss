@@ -1,3 +1,5 @@
+@use "../../styles/scss/variables" as var;
+
 .table__head {
 
     th {
@@ -5,32 +7,43 @@
     }
 }
 
-.productCell {
+.table__body {
 
-    display: flex !important;
-    align-items: center;
-    gap: 5px;
+    .productCell {
 
-    .cartImage {
-        width: 25px;
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
+
+        .cartImage {
+            width: 25px;
+        }
     }
 
-}
+    .amountCell {
 
-.amountCell {
-
-    .shoppingCartButton {
-        padding: 0 !important;
-        min-width: 20px !important;
-        margin-left: 5px;
-        margin-right: 5px;
+        .shoppingCartButton {
+            padding: 0 !important;
+            min-width: 20px !important;
+            margin-left: 5px;
+            margin-right: 5px;
+        }
     }
-}
 
+    .total {
+        td {
+            font-weight: bold !important;
+        }
+    }
 
+    .emptyCart {
 
-.total {
-    td {
-        font-weight: bold !important;
+        td {
+
+            font-size: large;
+            font-weight: bold;
+            text-align: center;
+            color: var.$colorBorderDark;
+        }
     }
 }

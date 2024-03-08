@@ -1,0 +1,49 @@
+@use "../../styles/scss/variables" as var;
+
+.shoppingCart__resume {
+
+    .table__head--title {
+
+        font-weight: bold;
+    }
+
+    .table__body__items {
+
+        .item {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            :last-child {
+                align-self: right;
+            }
+        }
+
+        &--products,
+        &--ship {
+            font-size: small;
+        }
+
+        &--ship {
+            span {
+                color: var.$shipFreeColor;
+            }
+        }
+
+        &--total {
+            margin: 20px 0 20px 0;
+            font-weight: bold;
+        }
+
+        .grid-item-right {
+            text-align: right;
+        }
+    }
+
+    &--btn {
+        display: flex !important;
+        margin: 10px 0 10px 0;
+        justify-content: center !important;
+
+    }
+
+}
