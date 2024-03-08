@@ -5,7 +5,7 @@ import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { useContext } from "react";
 import Button from "../../components/button/Button";
 import CartTable from "../../components/table/CartTable";
-import ShoppingResumeTable from "../../components/table/shoppingResumeTable";
+import ShoppingResumeTable from "../../components/table/ShoppingResumeTable";
 
 const ShoppingCart = () => {
 
