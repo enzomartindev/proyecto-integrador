@@ -88,7 +88,7 @@ const CartTable = (props) => {
                             <TableCell align="center">{CURRENCY}{(product.price * product.amount).toFixed(2)}</TableCell>
                         </TableRow>
                     ))}
-                    <TableRow className="total">
+                    {/* <TableRow className="total">
                         <TableCell colSpan={2}/>
                         <TableCell align="center">
                             Total:
@@ -96,7 +96,7 @@ const CartTable = (props) => {
                         <TableCell align="center">
                             {CURRENCY}{total.toFixed(2)}
                         </TableCell>
-                    </TableRow>
+                    </TableRow> */}
                 </TableBody>
             </Table>
         </TableContainer>
