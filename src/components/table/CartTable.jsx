@@ -76,8 +76,10 @@ const CartTable = (props) => {
                         )))
                         : (
                             <TableRow className="emptyCart">
-                                <TableCell colSpan={4}>
-                            El carrito está vacío
+                                <TableCell
+                                    colSpan={4}
+                                    rowSpan={4}>
+                                    El carrito está vacío
                                 </TableCell>
                             </TableRow>
                         )}

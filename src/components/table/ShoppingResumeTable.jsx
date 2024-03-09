@@ -16,7 +16,7 @@ import { CURRENCY } from "./../../constanst/general.js";
 
 const ShoppingResumeTable = () => {
 
-    const { getTotal, shoppingCartCounter } = useContext(ShoppingCartContext);
+    const { getTotal, shoppingCartCounter, updateStock, shoppingCart } = useContext(ShoppingCartContext);
 
     return (
         <Box className="shoppingCart__resume">
@@ -55,11 +55,10 @@ const ShoppingResumeTable = () => {
                 <Box className="shoppingCart__resume--btn">
                     <Button
                         component={NavLink}
-                        to="/"
                         type="button"
                         color="success"
+                        onClick={()=> {updateStock(shoppingCart);}}
                     >Confirmar Compra
-
                     </Button>
                 </Box>
             </TableContainer>

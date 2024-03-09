@@ -28,13 +28,15 @@ const ShoppingCart = () => {
                     type="button">
             Seguir comprando
                 </Button>
-                <Button
-                    component={NavLink}
-                    type="button"
-                    color="danger"
-                    onClick={()=> emptyShoppingCart("shoppingCart")} >
+                {shoppingCart?.length > 0 && (
+                    <Button
+                        component={NavLink}
+                        type="button"
+                        color="danger"
+                        onClick={()=> emptyShoppingCart("shoppingCart")} >
            Vaciar Carrito
-                </Button>
+                    </Button>)
+                }
             </Box>
         </>
     );

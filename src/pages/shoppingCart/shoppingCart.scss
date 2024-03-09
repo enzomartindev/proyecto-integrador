@@ -8,17 +8,19 @@
         margin: 5px;
     }
 
-    .shoppingCart {
+}
 
+.shoppingCart {
+
+    display: flex;
+    gap: 10px;
+
+    &__actions {
         display: flex;
+        justify-content: left;
+        width: 100%;
         gap: 10px;
-
-        &__actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 1vh 0 0 0;
-        }
-
+        padding: 10px;
     }
+
 }

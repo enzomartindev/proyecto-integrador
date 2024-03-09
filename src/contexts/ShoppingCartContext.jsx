@@ -42,8 +42,25 @@ const ShoppingCartProvider = (props) =>{
 
         if (product.amount === products[index].stock){
             console.log("No hay tanto stock che!");
+            alert("La cantidad solicitada supera el stock disponible");
             return true;
         }
+    };
+
+    const updateStock = (cartProducts) => {
+
+        cartProducts.forEach((product) => {
+
+            const index = products.findIndex((item) => item.id === product.id);
+
+            products[index].stock = products[index].stock - product.amount;
+
+            updateProduct(products[index]);
+
+            emptyShoppingCart();
+
+        });
+
     };
 
     const addProductCart = (product) => {
@@ -102,7 +119,8 @@ const ShoppingCartProvider = (props) =>{
                 shoppingCartCounter,
                 emptyShoppingCart,
                 getTotal,
-                stockControl }}>
+                stockControl,
+                updateStock }}>
             {children}
         </ShoppingCartContext.Provider>
     );
