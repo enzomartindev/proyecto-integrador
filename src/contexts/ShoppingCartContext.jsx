@@ -1,12 +1,14 @@
 import { createContext } from "react";
 import PropTypes from "prop-types";
 import useLocalStorage from "../hooks/useLocalStorage";
+import useProducts from "../hooks/useProducts";
 
 const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
     const { items, setItem } = useLocalStorage({ shoppingCart : [] });
+    const { products, updateProduct } = useProducts();
 
     const getProductCart = (id) => {
         return items?.shoppingCart.find((item)=>item.id === id);
@@ -34,17 +36,29 @@ const ShoppingCartProvider = (props) =>{
         return(sum);
     };
 
+    const stockControl = (product) => {
+
+        const index = products.findIndex((item) => item.id === product.id);
+
+        if (product.amount === products[index].stock){
+            console.log("No hay tanto stock che!");
+            return true;
+        }
+    };
+
     const addProductCart = (product) => {
 
         const productLS = getProductCart(product.id);
 
         if (productLS) {
             //Si  existe en LocalStorage, le sumo 1 al amount
-            product.amount = productLS.amount + 1;
-
-            const index = items.shoppingCart.findIndex((item) => item.id === product.id);
-            const products = items.shoppingCart.toSpliced(index, 1, product);
-            setItem("shoppingCart", products);
+            if(!stockControl(productLS))
+            {
+                product.amount = productLS.amount + 1;
+                const index = items.shoppingCart.findIndex((item) => item.id === product.id);
+                const products = items.shoppingCart.toSpliced(index, 1, product);
+                setItem("shoppingCart", products);
+            }
 
         }else{
             //Si no existe en LocalStorage, le inicializo la cantidad en 1
@@ -87,7 +101,8 @@ const ShoppingCartProvider = (props) =>{
                 removeProductCart,
                 shoppingCartCounter,
                 emptyShoppingCart,
-                getTotal }}>
+                getTotal,
+                stockControl }}>
             {children}
         </ShoppingCartContext.Provider>
     );

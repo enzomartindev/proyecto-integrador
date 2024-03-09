@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton } from "@mui/material";
+import { Box, Card, CardActions, CardContent, CardMedia, IconButton, Table, TableCell, TableRow } from "@mui/material";
 import "./productCard.scss";
 
 import Button from "../button/Button";
@@ -13,6 +13,7 @@ import { NavLink } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import { useContext, useEffect } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
+import { CURRENCY } from "./../../constanst/general.js";
 
 const ProductCard = (props) => {
     const { product, setProducts, itIsOff } = props;
@@ -57,8 +58,8 @@ const ProductCard = (props) => {
                 alt={`Fotografía de ${product.name}`}/>
             <CardContent className="product-card__content">
                 <h4>{product.name}</h4>
-                <p><span>Ingredientes:</span> {`${product.description}`}</p>
-                {!product.isPromotion && <p><span>Precio:</span> {`${product.price}`}</p>}
+                <p>{`${product.description}`}</p>
+                {!product.isPromotion && <p className="product-card__content--price"><span>{CURRENCY} {`${product.price.toFixed(2)}`}</span></p>}
                 {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * itIsOff )}`}</p>}
             </CardContent>
             <CardActions className="product-card__actions">

@@ -57,7 +57,9 @@ const ShoppingResumeTable = () => {
                         component={NavLink}
                         to="/"
                         type="button"
-                        color="success">Confirmar Compra
+                        color="success"
+                    >Confirmar Compra
+
                     </Button>
                 </Box>
             </TableContainer>

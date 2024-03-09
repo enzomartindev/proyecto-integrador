@@ -3,13 +3,14 @@
 $_width: 100%;
 
 .product-card {
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content auto max-content;
     gap: 1vw;
-
     width: $_width;
     padding: 0.5vw;
+
 
     &__floats {
         position: relative;
@@ -51,12 +52,13 @@ $_width: 100%;
     }
 
     &__content {
+
         display: flex;
         flex-direction: column;
         gap: 0.75vw;
-
         width: $_width;
         padding: 0 !important;
+        height: max-content !important;
 
         h4 {
             font-size: var.$fontSizeMD;
@@ -64,10 +66,22 @@ $_width: 100%;
 
         p {
             font-size: var.$fontSizeSM;
-            text-align: justify;
+            text-align: left;
+            color: var.$colorFontDisabled;
+
+        }
+
+        &--price {
+            width: 100%;
+            text-align: center !important;
 
             span {
+                width: 100%;
                 font-weight: bold;
+                font-size: large;
+                color: green;
+                align-items: center !important;
+
             }
         }
 
@@ -80,6 +94,8 @@ $_width: 100%;
         display: flex;
         justify-content: center;
         width: $_width;
+        height: min-content;
+        margin-top: auto;
     }
 
     @media (max-width: 650px) {
