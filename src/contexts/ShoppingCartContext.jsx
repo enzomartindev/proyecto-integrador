@@ -7,8 +7,9 @@ const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
-    const { items, setItem } = useLocalStorage({ shoppingCart : [] });
-    const { products, updateProduct } = useProducts();
+    const { items, setItem, getItemValue } = useLocalStorage({ shoppingCart : [] });
+    const { updateProduct } = useProducts();
+    const products = getItemValue("products");
 
     const getProductCart = (id) => {
         return items?.shoppingCart.find((item)=>item.id === id);
@@ -41,7 +42,6 @@ const ShoppingCartProvider = (props) =>{
         const index = products.findIndex((item) => item.id === product.id);
 
         if (product.amount === products[index].stock){
-            console.log("No hay tanto stock che!");
             alert("La cantidad solicitada supera el stock disponible");
             return true;
         }
@@ -56,8 +56,6 @@ const ShoppingCartProvider = (props) =>{
             products[index].stock = products[index].stock - product.amount;
 
             updateProduct(products[index]);
-
-            emptyShoppingCart();
 
         });
 
@@ -104,9 +102,18 @@ const ShoppingCartProvider = (props) =>{
 
     };
 
+    const purchaseCart = (cartProducts) => {
+
+        updateStock(cartProducts);
+        emptyShoppingCart();
+    };
+
+    const updateCart = () => {
+        console.log("Actualizando carrito");
+    };
+
     const emptyShoppingCart = () => {
         setItem("shoppingCart", []);
-        console.log("Vaciando Carrito");
     };
 
     return(
@@ -120,7 +127,9 @@ const ShoppingCartProvider = (props) =>{
                 emptyShoppingCart,
                 getTotal,
                 stockControl,
-                updateStock }}>
+                updateStock,
+                updateCart,
+                purchaseCart }}>
             {children}
         </ShoppingCartContext.Provider>
     );

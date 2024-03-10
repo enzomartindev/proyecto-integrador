@@ -16,7 +16,7 @@ import { CURRENCY } from "./../../constanst/general.js";
 
 const ShoppingResumeTable = () => {
 
-    const { getTotal, shoppingCartCounter, updateStock, shoppingCart } = useContext(ShoppingCartContext);
+    const { getTotal, shoppingCartCounter, purchaseCart, shoppingCart } = useContext(ShoppingCartContext);
 
     return (
         <Box className="shoppingCart__resume">
@@ -39,10 +39,11 @@ const ShoppingResumeTable = () => {
                                     <p>Productos ({shoppingCartCounter()})</p>
                                     <span className="grid-item-right">{CURRENCY} {(getTotal().toFixed(2))}</span>
                                 </div>
-                                <div className="item table__body__items--ship">
-                                    <p >Envío:</p>
-                                    <span className="grid-item-right">Gratis</span>
-                                </div>
+                                {shoppingCartCounter() > 0 && (
+                                    <div className="item table__body__items--ship">
+                                        <p >Envío:</p>
+                                        <span className="grid-item-right">Gratis</span>
+                                    </div>)}
                                 <div className="item table__body__items--total">
                                     <p >Total: </p>
                                     <span className="grid-item-right">{CURRENCY} {(getTotal().toFixed(2))}</span>
@@ -52,17 +53,17 @@ const ShoppingResumeTable = () => {
                         </TableRow>
                     </TableBody>
                 </Table>
-                <Box className="shoppingCart__resume--btn">
-                    <Button
-                        component={NavLink}
-                        type="button"
-                        color="success"
-                        onClick={()=> {updateStock(shoppingCart);}}
-                    >Confirmar Compra
-                    </Button>
-                </Box>
+                {shoppingCartCounter() > 0 && (
+                    <Box className="shoppingCart__resume--btn">
+                        <Button
+                            component={NavLink}
+                            type="button"
+                            color="success"
+                            onClick={()=> {purchaseCart(shoppingCart);}}
+                        >Confirmar Compra
+                        </Button>
+                    </Box>)}
             </TableContainer>
-
         </Box>
     );
 };

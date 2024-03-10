@@ -64,7 +64,7 @@ const ProductCard = (props) => {
             </CardContent>
             <CardActions className="product-card__actions">
                 {product.stock === 0 ?
-                    (<p>No hay Stock</p>) : ( <>
+                    (<p>Sin Stock</p>) : ( <>
                         <Button
                             color="danger"
                             onClick={()=> removeProductCart(product)}><RemoveIcon/></Button>

@@ -23,4 +23,25 @@ $_height: 100%;
         height: 40px !important;
     }
 
+    @media (max-width: 992px) {
+        div {
+
+            width: 100%
+        }
+    }
+
+    @media (max-width: 768px) {
+        div {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+
+        div {
+            width: 100%;
+        }
+    }
+
 }

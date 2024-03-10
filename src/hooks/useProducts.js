@@ -3,7 +3,7 @@ import useLocalStorage from "./useLocalStorage.js";
 import { pizzas } from "../data/data.js";
 
 const useProducts = () => {
-    const { items, setItem } = useLocalStorage({ products: pizzas });
+    const { items, setItem, getItemValue } = useLocalStorage({ products: pizzas });
 
     const normalizeValue = (value = "") => {
         return value
@@ -45,7 +45,7 @@ const useProducts = () => {
             id: values.id ?? generateId(),
             name: values.name ?? "",
             description: values.description ?? "",
-            image: values.image ?? "/images/home/products/img0001.jpg",
+            image: values.image ?? "/images/home/products/defaultphone.jpg",
             stock: Number(values.stock) ?? 0,
             price: Number(values.price) ?? 0,
             isPromotion: values.isPromotion ?? false,
@@ -59,13 +59,20 @@ const useProducts = () => {
     const updateProduct = (values) => {
         const index = items.products.findIndex((item) => item.id === values.id);
         const products = items.products.toSpliced(index, 1, createSchema(values));
+
         setItem("products", products);
+
     };
 
     const removeProduct = (id) => {
         const productsWithoutthisProduct = items.products.filter((item) => item.id != id);
-        console.log(id);
         setItem("products", productsWithoutthisProduct);
+
+        const shoppingCart = getItemValue("shoppingCart");
+        const shoppingCartUpdated = shoppingCart.filter((item) => item.id != id);
+
+        setItem("shoppingCart", shoppingCartUpdated );
+
     };
 
     return {

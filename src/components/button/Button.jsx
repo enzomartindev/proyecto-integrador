@@ -7,7 +7,7 @@ const Button = (props) => {
 
     return (
         <ButtonUI
-            className={`button ${color && `button--${color}`} ${className}`}
+            className={`button ${color && `button--${color} `} ${className}`}
             component={component}
             to={to}
             type={to ? type : null}

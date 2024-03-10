@@ -1,49 +1,60 @@
 @use "../../styles/scss/variables" as var;
 
-.table__head {
+.table__container {
 
-    th {
-        font-weight: bold !important;
-    }
-}
+    .table__head {
 
-.table__body {
-
-    .productCell {
-
-        display: flex !important;
-        align-items: center;
-        gap: 5px;
-
-        .cartImage {
-            width: 25px;
-        }
-    }
-
-    .amountCell {
-
-        .shoppingCartButton {
-            padding: 0 !important;
-            min-width: 20px !important;
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-    }
-
-    .total {
-        td {
+        th {
             font-weight: bold !important;
         }
     }
 
-    .emptyCart {
+    .table__body {
 
-        td {
+        .productCell {
 
-            font-size: large;
-            font-weight: bold;
-            text-align: center;
-            color: var.$colorBorderDark;
+            display: flex !important;
+            align-items: center;
+            gap: 5px;
+
+            .cartImage {
+                width: 25px;
+            }
         }
+
+        .amountCell {
+
+            .shoppingCartButton {
+                padding: 0 !important;
+                min-width: 20px !important;
+                margin-left: 5px;
+                margin-right: 5px;
+            }
+        }
+
+        .total {
+            td {
+                font-weight: bold !important;
+            }
+        }
+
+        .emptyCart {
+
+            td {
+
+                font-size: large;
+                font-weight: bold;
+                text-align: center;
+                color: var.$colorBorderDark;
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+
+
+        //min-width: 480px !important;
+
+
     }
 }

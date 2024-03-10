@@ -23,7 +23,9 @@ const CartTable = (props) => {
     const { products } = props;
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer
+            component={Paper}
+            className="table__container">
             <Table
                 sx={{ minWidth: 650 }}
                 aria-label="simple table">

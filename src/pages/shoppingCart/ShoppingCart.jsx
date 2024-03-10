@@ -12,7 +12,7 @@ const ShoppingCart = () => {
     const { shoppingCart, emptyShoppingCart } = useContext(ShoppingCartContext);
 
     return (
-        <>
+        <Box component="section">
             <Box className="shoppingCart__container">
                 <h2 className="shoppingCart__container__title">Carrito de compras</h2>
                 <Box className="shoppingCart">
@@ -20,25 +20,25 @@ const ShoppingCart = () => {
                     </CartTable>
                     <ShoppingResumeTable/>
                 </Box>
-            </Box>
-            <Box className="shoppingCart__actions">
-                <Button
-                    component={NavLink}
-                    to="/"
-                    type="button">
-            Seguir comprando
-                </Button>
-                {shoppingCart?.length > 0 && (
+                <Box className="shoppingCart__actions">
                     <Button
                         component={NavLink}
-                        type="button"
-                        color="danger"
-                        onClick={()=> emptyShoppingCart("shoppingCart")} >
+                        to="/"
+                        type="button">
+            Seguir comprando
+                    </Button>
+                    {shoppingCart?.length > 0 && (
+                        <Button
+                            component={NavLink}
+                            type="button"
+                            color="danger"
+                            onClick={()=> emptyShoppingCart("shoppingCart")} >
            Vaciar Carrito
-                    </Button>)
-                }
+                        </Button>)
+                    }
+                </Box>
             </Box>
-        </>
+        </Box>
     );
 };
 

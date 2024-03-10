@@ -57,6 +57,7 @@ const useLocalStorage = (initialValue = {}) => {
         setItem,
         removeItem,
         clearItems,
+        getItemValue,
     };
 };
 
