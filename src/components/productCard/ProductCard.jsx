@@ -62,13 +62,13 @@ const ProductCard = (props) => {
                 {!product.isPromotion && <p className="product-card__content--price"><span>{CURRENCY} {`${product.price.toFixed(2)}`}</span></p>}
                 {product.isPromotion &&
                 <p className="product-card__content--promotionPrice">
-                    <span>{product.price}</span>
-                    <span> {`${product.price - (product.price / 100 * itIsOff )}`}</span>
+                    <span>{CURRENCY} {product.price.toFixed(2)}</span>
+                    <span>{CURRENCY} {`${(product.price - (product.price / 100 * itIsOff )).toFixed(2)}`}</span>
                     Precio promocional!</p>}
             </CardContent>
             <CardActions className="product-card__actions">
                 {product.stock === 0 ?
-                    (<p>Sin Stock</p>) : (
+                    (<p className="noStock">Sin Stock</p>) : (
                         <>
                             <Button
                                 color="danger"

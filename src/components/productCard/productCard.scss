@@ -11,7 +11,6 @@ $_width: 100%;
     width: $_width;
     padding: 0.5vw;
 
-
     &__floats {
         position: relative;
 
@@ -120,6 +119,10 @@ $_width: 100%;
         width: $_width;
         height: min-content;
         margin-top: auto;
+
+        .noStock {
+            color: red;
+        }
     }
 
     @media (max-width: 650px) {
