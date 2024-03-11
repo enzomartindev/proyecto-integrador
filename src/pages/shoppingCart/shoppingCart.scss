@@ -33,10 +33,10 @@
         .shoppingCart {
 
             display: flex;
-            flex-direction: column;
+            height: fit-content !important;
 
             &__actions {
-                justify-content: center;
+                justify-content: left;
             }
         }
     }
@@ -53,7 +53,24 @@
             flex-direction: column;
 
             &__actions {
-                justify-content: center;
+                justify-content: left;
+            }
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+
+        .shoppingCart {
+
+            display: flex;
+            flex-direction: column;
+
+            &__actions {
+                justify-content: left;
             }
         }
     }
