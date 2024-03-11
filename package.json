@@ -2,7 +2,7 @@
     "name": "mi_proyecto",
     "private": true,
     "version": "1.0.45",
-    "description": "Mi tienda en React JS",
+    "description": "Tienda Tincho Store React JS",
     "type": "module",
     "scripts": {
         "dev": "vite",
@@ -11,7 +11,7 @@
         "preview": "vite preview",
         "netlify": "netlify"
     },
-    "author": "Sergio Regalado Alessi",
+    "author": "Enzo Martin Alfonso Flores",
     "license": "MIT",
     "dependencies": {
         "@emotion/react": "^11.11.3",

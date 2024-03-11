@@ -136,7 +136,7 @@ FormProduct.defaultProps = {
     initialValues: {
         name: "",
         description: "",
-        image: "/images/home/products/default.jpg",
+        image: "/images/home/products/defaultphone.jpg",
         stock: 0,
         price: 0,
         isPromotion: false,

@@ -10,13 +10,22 @@ import "./shoppingResumeTable.scss";
 import { Box } from "@mui/material";
 import Button from "../button/Button";
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { CURRENCY } from "./../../constanst/general.js";
+import Alert from "../../components/alert/Alert.jsx";
 
 const ShoppingResumeTable = () => {
 
+    const [ openAlert, setOpenAlert ] = useState(false);
+
     const { getTotal, shoppingCartCounter, purchaseCart, shoppingCart } = useContext(ShoppingCartContext);
+
+    const handlePurchaseCart = (shoppingCart) => {
+
+        purchaseCart(shoppingCart);
+        setOpenAlert(true);
+    };
 
     return (
         <Box className="shoppingCart__resume">
@@ -59,10 +68,15 @@ const ShoppingResumeTable = () => {
                             component={NavLink}
                             type="button"
                             color="success"
-                            onClick={()=> {purchaseCart(shoppingCart);}}
+                            onClick={()=> {
+                                handlePurchaseCart(shoppingCart);}}
                         >Confirmar Compra
                         </Button>
                     </Box>)}
+                <Alert
+                    openAlert={openAlert}
+                    setOpenAlert={setOpenAlert}
+                    message="La compra se procesó correctamente"/>
             </TableContainer>
         </Box>
     );

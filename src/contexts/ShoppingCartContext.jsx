@@ -1,14 +1,13 @@
 import { createContext } from "react";
 import PropTypes from "prop-types";
 import useLocalStorage from "../hooks/useLocalStorage";
-import useProducts from "../hooks/useProducts";
 
 const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
     const { items, setItem, getItemValue } = useLocalStorage({ shoppingCart : [] });
-    const { updateProduct } = useProducts();
+    //const { products } = useProducts();
     const products = getItemValue("products");
 
     const getProductCart = (id) => {
@@ -39,9 +38,10 @@ const ShoppingCartProvider = (props) =>{
 
     const stockControl = (product) => {
 
-        const index = products.findIndex((item) => item.id === product.id);
+        const productosActualizados = getItemValue("products");
+        const index = productosActualizados.findIndex((item) => item.id === product.id);
 
-        if (product.amount === products[index].stock){
+        if (product.amount === productosActualizados[index].stock){
             alert("La cantidad solicitada supera el stock disponible");
             return true;
         }
@@ -49,15 +49,19 @@ const ShoppingCartProvider = (props) =>{
 
     const updateStock = (cartProducts) => {
 
-        cartProducts.forEach((product) => {
-
-            const index = products.findIndex((item) => item.id === product.id);
-
-            products[index].stock = products[index].stock - product.amount;
-
-            updateProduct(products[index]);
-
+        const updatedProducts = products.map((existingProduct) => {
+            const updatedProduct = cartProducts.find((cartProduct) => cartProduct.id === existingProduct.id);
+            if (updatedProduct) {
+                return {
+                    ...existingProduct,
+                    stock: existingProduct.stock - updatedProduct.amount,
+                };
+            }
+            return existingProduct;
         });
+
+        // Establecer los productos actualizados en el almacenamiento
+        setItem("products", updatedProducts);
 
     };
 
@@ -99,17 +103,20 @@ const ShoppingCartProvider = (props) =>{
             const productsUpdated = items.shoppingCart.filter((item) => item.id != product.id);
             setItem("shoppingCart", productsUpdated);
         }
-
     };
 
     const purchaseCart = (cartProducts) => {
-
         updateStock(cartProducts);
         emptyShoppingCart();
     };
 
-    const updateCart = () => {
-        console.log("Actualizando carrito");
+    const removeProductFromCart = (id) => {
+        const productToRemove = items.shoppingCart.find((product) => product.id === id);
+        if (productToRemove) {
+            // Eliminar el producto del carrito
+            const updatedCart = items.shoppingCart.filter((product) => product.id !== id);
+            setItem("shoppingCart", updatedCart);
+        }
     };
 
     const emptyShoppingCart = () => {
@@ -128,7 +135,7 @@ const ShoppingCartProvider = (props) =>{
                 getTotal,
                 stockControl,
                 updateStock,
-                updateCart,
+                removeProductFromCart,
                 purchaseCart }}>
             {children}
         </ShoppingCartContext.Provider>

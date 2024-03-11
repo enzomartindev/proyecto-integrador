@@ -60,17 +60,22 @@ const ProductCard = (props) => {
                 <h4>{product.name}</h4>
                 <p>{`${product.description}`}</p>
                 {!product.isPromotion && <p className="product-card__content--price"><span>{CURRENCY} {`${product.price.toFixed(2)}`}</span></p>}
-                {product.isPromotion && <p><span>Precio promocional:</span> {`${product.price - (product.price / 100 * itIsOff )}`}</p>}
+                {product.isPromotion &&
+                <p className="product-card__content--promotionPrice">
+                    <span>{product.price}</span>
+                    <span> {`${product.price - (product.price / 100 * itIsOff )}`}</span>
+                    Precio promocional!</p>}
             </CardContent>
             <CardActions className="product-card__actions">
                 {product.stock === 0 ?
-                    (<p>Sin Stock</p>) : ( <>
-                        <Button
-                            color="danger"
-                            onClick={()=> removeProductCart(product)}><RemoveIcon/></Button>
-                        <span>{getCardAmount()}</span>
-                        <Button onClick={()=> addProductCart(product)}><AddIcon/></Button>
-                    </>
+                    (<p>Sin Stock</p>) : (
+                        <>
+                            <Button
+                                color="danger"
+                                onClick={()=> removeProductCart(product)}><RemoveIcon/></Button>
+                            <span>{getCardAmount()}</span>
+                            <Button onClick={()=> addProductCart(product)}><AddIcon/></Button>
+                        </>
                     )}
             </CardActions>
         </Card>

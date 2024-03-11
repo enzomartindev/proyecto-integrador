@@ -1,9 +1,12 @@
 import useLocalStorage from "./useLocalStorage.js";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../contexts/ShoppingCartContext.jsx";
 
 import { pizzas } from "../data/data.js";
 
 const useProducts = () => {
-    const { items, setItem, getItemValue } = useLocalStorage({ products: pizzas });
+    const { items, setItem } = useLocalStorage({ products: pizzas });
+    const { removeProductFromCart } = useContext( ShoppingCartContext );
 
     const normalizeValue = (value = "") => {
         return value
@@ -68,10 +71,7 @@ const useProducts = () => {
         const productsWithoutthisProduct = items.products.filter((item) => item.id != id);
         setItem("products", productsWithoutthisProduct);
 
-        const shoppingCart = getItemValue("shoppingCart");
-        const shoppingCartUpdated = shoppingCart.filter((item) => item.id != id);
-
-        setItem("shoppingCart", shoppingCartUpdated );
+        removeProductFromCart(id);
 
     };
 

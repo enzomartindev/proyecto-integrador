@@ -62,7 +62,7 @@ const Footer = () => {
             </Box>
 
             <Box className="footer__copyright">
-                <span>&copy;2023 Todos los derechos reservados</span>
+                <span>&copy;2024 Todos los derechos reservados</span>
             </Box>
         </Box>
     );
