@@ -1,7 +1,7 @@
 export const pizzas = [
     {
         id: 1,
-        name: "Solana hacete culiar",
+        name: "iPhone 13",
         description: "El último modelo de iPhone con pantalla Super Retina XDR y chip A15 Bionic.",
         price: 799,
         stock: 4,
