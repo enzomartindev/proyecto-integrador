@@ -65,7 +65,7 @@ const CartTable = (props) => {
                                         color="danger"
                                         onClick={()=> removeProductCart(product)}><RemoveIcon/>
                                     </Button>
-                                    {product.amount}
+                                    <span>{product.amount}</span>
                                     <Button
                                         className = "shoppingCartButton"
                                         onClick={()=> addProductCart(product)}><AddIcon/>

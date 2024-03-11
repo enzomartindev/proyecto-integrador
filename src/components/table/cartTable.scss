@@ -26,6 +26,7 @@
 
         .amountCell {
 
+
             .shoppingCartButton {
                 padding: 0 !important;
                 min-width: 20px !important;
@@ -60,6 +61,13 @@
     @media (max-width: 768px) {
         width: 100% !important;
 
+    }
+
+    @media (max-width: 480px) {
+
+        .amountCell {
+            padding: 0;
+        }
     }
 
 }
