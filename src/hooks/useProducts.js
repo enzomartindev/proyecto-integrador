@@ -20,12 +20,20 @@ const useProducts = () => {
     };
 
     const searchProducts = (text) => {
+
         const preparedText = normalizeValue(text);
 
         return items.products.filter((pizza) => {
             const preparedPizza = normalizeValue(pizza.name);
+            const productID = pizza.id;
 
-            if (preparedText.length === 0 || preparedPizza.includes(preparedText)) {
+            if(preparedText.includes("id:") && parseInt(preparedText.replace("id:", "")) === productID){
+                console.log("devolviendo pizza id: " + productID);
+                return pizza;
+            }
+
+            if (preparedText.length === 0 || preparedPizza.includes(preparedText) ) {
+                console.log("estoy pasando pro aca");
                 return pizza;
             }
         });
