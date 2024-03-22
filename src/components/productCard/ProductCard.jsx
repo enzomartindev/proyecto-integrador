@@ -10,14 +10,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { NavLink } from "react-router-dom";
-import useProducts from "../../hooks/useProducts";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
-import { CURRENCY } from "./../../constanst/general.js";
+import { CURRENCY, IT_IS_OFF } from "./../../constanst/general.js";
 
 const ProductCard = (props) => {
-    const { product, setProducts, itIsOff } = props;
-    const { products, removeProduct } = useProducts();
+    const { product, removeProduct } = props;
 
     const { getProductCart, addProductCart, removeProductCart } = useContext(ShoppingCartContext);
 
@@ -31,12 +29,6 @@ const ProductCard = (props) => {
         return 0;
 
     };
-
-    useEffect(() => {
-        if (products?.length > 0) {
-            setProducts(products);
-        }
-    }, [products]);
 
     return (
         <Card className="product-card">
@@ -54,7 +46,7 @@ const ProductCard = (props) => {
             <CardMedia
                 component="img"
                 className="product-card__image"
-                image={product.image}
+                image={product.imageFileName}
                 alt={`Fotografía de ${product.name}`}/>
             <CardContent className="product-card__content">
                 <h4>{product.name}</h4>
@@ -62,8 +54,8 @@ const ProductCard = (props) => {
                 {!product.isPromotion && <p className="product-card__content--price"><span>{CURRENCY} {`${product.price.toFixed(2)}`}</span></p>}
                 {product.isPromotion &&
                 <p className="product-card__content--promotionPrice">
-                    <span>{CURRENCY} {product.price.toFixed(2)}</span>
-                    <span>{CURRENCY} {`${(product.price - (product.price / 100 * itIsOff )).toFixed(2)}`}</span>
+                    <span>{CURRENCY}{product.price.toFixed(2)}</span>
+                    <span>{CURRENCY}{`${(product.price - (product.price / 100 * IT_IS_OFF )).toFixed(2)}`}</span>
                     Precio promocional!</p>}
             </CardContent>
             <CardActions className="product-card__actions">
@@ -87,17 +79,12 @@ ProductCard.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
+        imageFileName: PropTypes.string.isRequired,
         stock: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
         isPromotion: PropTypes.bool.isRequired,
     }),
-    setProducts: PropTypes.func.isRequired,
-    itIsOff: PropTypes.number,
-};
-
-ProductCard.defaultProps = {
-    itIsOff: 0.0,
+    removeProduct: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

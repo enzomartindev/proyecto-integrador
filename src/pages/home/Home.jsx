@@ -1,36 +1,15 @@
-import { useState } from "react";
 import { Box } from "@mui/material";
 import "./home.scss";
-
-import { IT_IS_OFF } from "../../constanst/general.js";
-
-import ProductSearch from "../../components/productSearch/ProductSearch";
-import ProductCard from "../../components/productCard/ProductCard";
-import ProductCreateCard from "../../components/productCreateCard/ProductCreateCard.jsx";
+import ProductGallery from "../../components/productGallery/ProductGallery";
 
 const Home = () => {
-    const [ products, setProducts ] = useState([]);
 
     return (
         <Box className="home">
             <Box
                 component="section"
                 className="home__section">
-                <Box className="home__section__search">
-                    <ProductSearch setProducts={setProducts}/>
-                    <ProductCreateCard/>
-                </Box>
-
-                <Box
-                    className="home__section__cards">
-                    {products?.map((product) => (
-                        <ProductCard
-                            key={product.id}
-                            product={product}
-                            itIsOff={IT_IS_OFF}
-                            setProducts={setProducts}/>
-                    ))}
-                </Box>
+                <ProductGallery/>
             </Box>
         </Box>
     );
