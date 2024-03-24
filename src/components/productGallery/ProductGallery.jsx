@@ -19,7 +19,6 @@ const ProductGallery = () => {
 
             <Box
                 className="product-gallery__cards">
-                <p>Galeria</p>
                 {products?.map((product) => (
                     <ProductCard
                         key={product.id}

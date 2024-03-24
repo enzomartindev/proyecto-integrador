@@ -5,28 +5,29 @@ $_height: 100%;
 
 .product-gallery {
 
-    &__section {
-        padding: 0.5rem 0;
+    padding: 1vh;
 
-        h3 {
-            margin-bottom: 0.5rem;
-        }
+    padding: 0.5rem 0;
 
-        &__search {
-            display: flex;
-            justify-content: flex-end;
-            gap: 10px;
-            height: 100%;
-            padding: 0.25rem 0;
-        }
-
-        &__cards {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 1vw;
-            padding: 1rem 0;
-        }
+    h3 {
+        margin-bottom: 0.5rem;
     }
+
+    &__search {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        height: 100%;
+        padding: 0.25rem 0;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1vw;
+        padding: 1rem 0;
+    }
+
 
     @media (max-width: 1400px) {
         &__section {
