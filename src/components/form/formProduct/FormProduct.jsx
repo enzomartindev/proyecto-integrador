@@ -85,7 +85,7 @@ const FormProduct = (props) => {
             <InputField
                 label="Ruta de la imagen"
                 name="image"
-                value={formik.values.image}
+                value={formik.values.imageFileName}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={formik.touched.image && Boolean(formik.errors.image)}
@@ -95,7 +95,7 @@ const FormProduct = (props) => {
             <Box
                 className="form-product__image"
                 component="img"
-                src={`${PRODUCTS_IMG_URL}${formik.values.image}`}
+                src={`${PRODUCTS_IMG_URL}${formik.values.imageFileName}`}
                 alt="Fotografía del producto"/>
 
             <Switch
@@ -126,7 +126,7 @@ FormProduct.propTypes = {
         id: PropTypes.number,
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
+        imageFileName: PropTypes.string.isRequired,
         stock: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
         isPromotion: PropTypes.bool.isRequired,
@@ -137,7 +137,7 @@ FormProduct.defaultProps = {
     initialValues: {
         name: "",
         description: "",
-        image: "/images/home/products/defaultphone.jpg",
+        imageFileName: "/images/home/products/defaultphone.jpg",
         stock: 0,
         price: 0,
         isPromotion: false,
