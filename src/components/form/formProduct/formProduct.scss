@@ -13,4 +13,10 @@
         width: 200px;
         border-radius: 0.25rem / 0.25rem;
     }
+
+
+    @media (max-width: 650px) {
+
+        width: 100%;
+    }
 }

@@ -12,6 +12,7 @@ import InputField from "../inputField/InputField";
 import Button from "../../button/Button";
 import Switch from "../switch/Switch.jsx";
 import Alert from "../../alert/Alert.jsx";
+import { PRODUCTS_IMG_URL } from "../../../constanst/api.js";
 
 const FormProduct = (props) => {
     const { initialValues } = props;
@@ -94,7 +95,7 @@ const FormProduct = (props) => {
             <Box
                 className="form-product__image"
                 component="img"
-                src={formik.values.image}
+                src={`${PRODUCTS_IMG_URL}${formik.values.image}`}
                 alt="Fotografía del producto"/>
 
             <Switch

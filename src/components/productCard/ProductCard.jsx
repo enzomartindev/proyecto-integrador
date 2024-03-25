@@ -13,6 +13,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { CURRENCY, IT_IS_OFF } from "./../../constanst/general.js";
+import { PRODUCTS_IMG_URL } from "../../constanst/api.js";
 
 const ProductCard = (props) => {
     const { product, removeProduct } = props;
@@ -46,7 +47,7 @@ const ProductCard = (props) => {
             <CardMedia
                 component="img"
                 className="product-card__image"
-                image={product.imageFileName}
+                image={`${PRODUCTS_IMG_URL}/${product.imageFileName}`}
                 alt={`Fotografía de ${product.name}`}/>
             <CardContent className="product-card__content">
                 <h4>{product.name}</h4>

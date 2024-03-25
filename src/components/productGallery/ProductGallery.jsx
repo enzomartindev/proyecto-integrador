@@ -5,6 +5,7 @@ import "./productGallery.scss";
 import ProductSearch from "../../components/productSearch/ProductSearch";
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductCreateCard from "../../components/productCreateCard/ProductCreateCard.jsx";
+import DataLoading from "../dataLoading/DataLoading.jsx";
 
 const ProductGallery = () => {
 
@@ -16,16 +17,20 @@ const ProductGallery = () => {
                 <ProductSearch searchProducts={searchProducts}/>
                 <ProductCreateCard/>
             </Box>
-
-            <Box
-                className="product-gallery__cards">
-                {products?.map((product) => (
-                    <ProductCard
-                        key={product.id}
-                        product={product}
-                        removeProduct={removeProduct}/>
-                ))}
-            </Box>
+            {products.length > 0 ? (
+                <Box
+                    className="product-gallery__cards">
+                    {products?.map((product) => (
+                        <ProductCard
+                            key={product.id}
+                            product={product}
+                            removeProduct={removeProduct}/>
+                    ))}
+                </Box>)
+                :(
+                    <DataLoading
+                        title="Cargando productos"/>
+                )}
         </Box>
 
     );

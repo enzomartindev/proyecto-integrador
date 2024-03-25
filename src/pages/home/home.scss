@@ -5,4 +5,60 @@ $_height : 30px;
 .home {
     width: var.$widthContent;
 
+    @media (max-width: 1400px) {
+        &__section {
+            .product-gallery {
+                &__cards {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        &__section {
+            .product-gallery {
+                &__cards {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 992px) {
+        &__section {
+            .product-gallery {
+                &__cards {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        &__section {
+
+            .product-gallery {
+
+                &__search {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 1vw;
+
+                    div {
+                        width: 100%;
+                    }
+
+                    :last-child {
+                        margin-left: 0;
+                    }
+                }
+
+                &__cards {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
 }
