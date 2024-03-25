@@ -15,6 +15,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
+import { PRODUCTS_IMG_URL } from "../../constanst/api.js";
 
 const CartTable = (props) => {
 
@@ -53,7 +54,7 @@ const CartTable = (props) => {
                                     scope="row">
                                     <img
                                         className="cartImage"
-                                        src={product.imageFileName}
+                                        src={`${PRODUCTS_IMG_URL}/${product.imageFileName}`}
                                         alt="Imagen del producto"/>
                                     {product.name}
                                 </TableCell>

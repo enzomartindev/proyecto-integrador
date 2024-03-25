@@ -7,7 +7,6 @@ const useProducts = () => {
     const { removeProductFromCart } = useContext( ShoppingCartContext );
     const [ response, setResponse ] = useState({});
     const [ products, setProducts ] = useState([]);
-    console.log("test");
 
     const searchProducts = async(params) => {
         const queryParams = new URLSearchParams(params);
