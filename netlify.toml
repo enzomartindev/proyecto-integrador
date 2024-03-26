@@ -2,3 +2,11 @@
   command = "npm run build"
   functions = "netlify/functions"
   publish = "dist"
+
+  [build.enviroment]
+    VITE_BACKEND_URL = "https://mitienda-enzo.onrender.com"
+
+  [[redirects]]
+  from = "/*"
+  to = "index.html"
+  status = 200

@@ -4,16 +4,17 @@ import { ShoppingCartContext } from "../contexts/ShoppingCartContext.jsx";
 import { PRODUCTS_URL } from "../constanst/api.js";
 
 const useProducts = () => {
+
     const { removeProductFromCart } = useContext( ShoppingCartContext );
     const [ response, setResponse ] = useState({});
     const [ products, setProducts ] = useState([]);
-    const [ isLoading, setIsLoading ] = useState(true); // Nuevo estado para indicar carga
+    const [ isLoading, setIsLoading ] = useState(true);
 
     const searchProducts = async(params) => {
         const queryParams = new URLSearchParams(params);
         const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` :PRODUCTS_URL;
 
-        setIsLoading(true);
+        //setIsLoading(true);
 
         return await axios.get(url)
             .then((res)=>{
