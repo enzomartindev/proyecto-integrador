@@ -11,7 +11,7 @@ const DataLoading = (props) => {
         <div className="data__loading">
             <CircularProgress color="success"/>
             <div>
-                <p >{title}...</p>
+                <p >{title}</p>
                 <p>Por favor espere</p>
             </div>
 

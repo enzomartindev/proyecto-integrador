@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { Box, Card, CardActions, CardContent, CardMedia, IconButton } from "@mui/material";
+import { Box, Card, CardActions, CardContent, CardMedia, Dialog, DialogActions, DialogContent, DialogTitle, IconButton } from "@mui/material";
 import "./productCard.scss";
 
 import Button from "../button/Button";
@@ -10,7 +10,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { CURRENCY, IT_IS_OFF } from "./../../constanst/general.js";
 import { PRODUCTS_IMG_URL } from "../../constanst/api.js";
@@ -19,6 +19,12 @@ const ProductCard = (props) => {
     const { product, removeProduct } = props;
 
     const { getProductCart, addProductCart, removeProductCart } = useContext(ShoppingCartContext);
+    const [ openDialog, setOpenDialog ] = useState(false);
+
+    const handleRemoveProduct = () => {
+        setOpenDialog(false);
+        removeProduct(product.id);
+    };
 
     const getCardAmount = ()=> {
 
@@ -41,8 +47,24 @@ const ProductCard = (props) => {
                         state={{ product }}>
                         <EditIcon/>
                     </IconButton>
-                    <IconButton onClick={() => removeProduct(product.id)}><DeleteIcon/></IconButton>
+                    <IconButton onClick={() => setOpenDialog(true)}><DeleteIcon/></IconButton>
                 </Box>
+                <Dialog
+                    open={openDialog}
+                    onClose={() => setOpenDialog(false)}>
+                    <DialogTitle>Confirmar Eliminación</DialogTitle>
+                    <DialogContent>
+                    ¿Estás seguro de que deseas eliminar este producto?
+                    </DialogContent>
+                    <DialogActions>
+                        <Button
+                            onClick={() => setOpenDialog(false)}
+                            color="primary">Cancelar</Button>
+                        <Button
+                            onClick={handleRemoveProduct}
+                            color="secondary">Eliminar</Button>
+                    </DialogActions>
+                </Dialog>
             </Box>
             <CardMedia
                 component="img"

@@ -7,15 +7,20 @@ const useProducts = () => {
     const { removeProductFromCart } = useContext( ShoppingCartContext );
     const [ response, setResponse ] = useState({});
     const [ products, setProducts ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(true); // Nuevo estado para indicar carga
 
     const searchProducts = async(params) => {
         const queryParams = new URLSearchParams(params);
         const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` :PRODUCTS_URL;
 
+        setIsLoading(true);
+
         return await axios.get(url)
             .then((res)=>{
                 setResponse(res);
                 setProducts(res.data?.data);
+                setIsLoading(false);
+
                 return res.data;
             });
 
@@ -47,12 +52,14 @@ const useProducts = () => {
             .then((res)=>{
                 setResponse(res);
                 removeProductFromCart(id);
+                searchProducts({});
                 return res.data;
             });
     };
 
     return {
         products,
+        isLoading,
         searchProducts,
         createProduct,
         updateProduct,

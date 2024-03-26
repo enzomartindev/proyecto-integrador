@@ -6,10 +6,15 @@ import ProductSearch from "../../components/productSearch/ProductSearch";
 import ProductCard from "../../components/productCard/ProductCard";
 import ProductCreateCard from "../../components/productCreateCard/ProductCreateCard.jsx";
 import DataLoading from "../dataLoading/DataLoading.jsx";
+import { PRODUCTS_IMG_URL } from "../../constanst/api.js";
 
 const ProductGallery = () => {
 
-    const { products, searchProducts, removeProduct } = useProducts();
+    const { isLoading, products, searchProducts, removeProduct } = useProducts();
+
+    if (isLoading) {
+        return <DataLoading title="Cargando productos..."/>;
+    }
 
     return (
         <Box className="product-gallery">
@@ -28,8 +33,12 @@ const ProductGallery = () => {
                     ))}
                 </Box>)
                 :(
-                    <DataLoading
-                        title="Cargando productos"/>
+                    <Box className="product-gallery--empty">
+                        <img
+                            src={`${PRODUCTS_IMG_URL}/images/home/others/emptyProducts.jpg`}
+                            alt=""/>
+                        <p>No se encontraron productos en la base de datos</p>
+                    </Box>
                 )}
         </Box>
 
