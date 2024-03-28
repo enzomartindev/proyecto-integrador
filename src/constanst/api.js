@@ -3,10 +3,12 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 // const PRODUCTS_IMG_URL = "https://mitienda-enzo.onrender.com/public";
 
 const PRODUCTS_URL = `${BACKEND_URL}/api/products`;
-const PRODUCTS_IMG_URL = `${BACKEND_URL}/public`;
+const PRODUCTS_IMG_URL = `${BACKEND_URL}/public/images`;
+const IMAGE_DEFAULT_NAME = "default.jpg";
 
 export {
     BACKEND_URL,
     PRODUCTS_URL,
     PRODUCTS_IMG_URL,
+    IMAGE_DEFAULT_NAME,
 };

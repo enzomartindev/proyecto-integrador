@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useProducts from "../../../hooks/useProducts.js";
-import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import { useFormik } from "formik";
 import { Box } from "@mui/material";
 import "./formProduct.scss";
@@ -9,21 +9,30 @@ import "./formProduct.scss";
 import validationSchema from "./formProduct.validate.js";
 
 import InputField from "../inputField/InputField";
-import Button from "../../button/Button";
+import InputFile from "../inputFile/InputFile.jsx";
+
 import Switch from "../switch/Switch.jsx";
+import Button from "../../button/Button";
 import Alert from "../../alert/Alert.jsx";
-import { PRODUCTS_IMG_URL } from "../../../constanst/api.js";
+import { PRODUCTS_IMG_URL, IMAGE_DEFAULT_NAME } from "../../../constanst/api.js";
+import { JPG, PNG } from "./../../../constanst/general.js";
 
 const FormProduct = (props) => {
     const { initialValues } = props;
 
-    const { createProduct, updateProduct } = useProducts();
+    const { createProduct, updateProduct, uploadProductImage } = useProducts();
     const [ openAlert, setOpenAlert ] = useState(false);
 
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: validationSchema,
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
+            if (values?.files) {
+                const response = await uploadProductImage(values.files[0]);
+                values.imageFileName = response?.data?.filename ? response.data.filename : IMAGE_DEFAULT_NAME;
+            }
+
+            console.log(values);
             values.id ? updateProduct(values) : createProduct(values);
             setOpenAlert(true);
         },
@@ -45,8 +54,7 @@ const FormProduct = (props) => {
                 onBlur={formik.handleBlur}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 errorMessage={formik.touched.name && formik.errors.name}
-                inputProps={{ maxLength: 25 }}>
-            </InputField>
+                inputProps={{ maxLength: 25 }}/>
 
             <InputField
                 label="Precio"
@@ -56,8 +64,7 @@ const FormProduct = (props) => {
                 onBlur={formik.handleBlur}
                 error={formik.touched.price && Boolean(formik.errors.price)}
                 errorMessage={formik.touched.price && formik.errors.price}
-                inputProps={{ maxLength: 12 }}>
-            </InputField>
+                inputProps={{ maxLength: 12 }}/>
 
             <InputField
                 label="Stock"
@@ -67,8 +74,7 @@ const FormProduct = (props) => {
                 onBlur={formik.handleBlur}
                 error={formik.touched.stock && Boolean(formik.errors.stock)}
                 errorMessage={formik.touched.stock && formik.errors.stock}
-                inputProps={{ maxLength: 6 }}>
-            </InputField>
+                inputProps={{ maxLength: 6 }}/>
 
             <InputField
                 label="Descripción"
@@ -82,20 +88,18 @@ const FormProduct = (props) => {
                 errorMessage={formik.touched.description && formik.errors.description}
                 inputProps={{ maxLength: 150 }}/>
 
-            <InputField
-                label="Ruta de la imagen"
-                name="image"
-                value={formik.values.imageFileName}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.touched.image && Boolean(formik.errors.image)}
-                errorMessage={formik.touched.image && formik.errors.image}
-                inputProps={{ maxLength: 50 }}/>
+            <InputFile
+                label="Imagen"
+                name="files"
+                accept={[ JPG, PNG ]}
+                formik={formik}
+                error={formik.touched.files && Boolean(formik.errors.files)}
+                errorMessage={formik.touched.files && formik.errors.files}/>
 
             <Box
                 className="form-product__image"
                 component="img"
-                src={`${PRODUCTS_IMG_URL}${formik.values.imageFileName}`}
+                src={`${PRODUCTS_IMG_URL}/${formik.values.imageFileName}`}
                 alt="Fotografía del producto"/>
 
             <Switch
@@ -104,11 +108,10 @@ const FormProduct = (props) => {
                 value={formik.values.isPromotion}
                 onChange={formik.handleChange}/>
 
-            <Button type="submit">Guardar</Button>
+            <Button type="submit" >Guardar</Button>
             <Button
                 component={NavLink}
-                to="/"
-                type="button"
+                to={"/"}
                 color="danger">
                         Cancelar
             </Button>
@@ -125,22 +128,23 @@ FormProduct.propTypes = {
     initialValues: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        stock: PropTypes.number.isRequired,
         description: PropTypes.string.isRequired,
         imageFileName: PropTypes.string.isRequired,
-        stock: PropTypes.number.isRequired,
-        price: PropTypes.number.isRequired,
         isPromotion: PropTypes.bool.isRequired,
-    }),
+    }).isRequired,
 };
 
 FormProduct.defaultProps = {
     initialValues: {
         name: "",
-        description: "",
-        imageFileName: "/images/home/products/defaultphone.jpg",
-        stock: 0,
         price: 0,
+        stock: 0,
+        description: "",
+        imageFileName: IMAGE_DEFAULT_NAME,
         isPromotion: false,
+        files: [],
     },
 };
 

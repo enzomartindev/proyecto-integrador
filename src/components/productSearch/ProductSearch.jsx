@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Box } from "@mui/material";
 import PropTypes from "prop-types";
+import { Box } from "@mui/material";
 import { useFormik } from "formik";
 import "./productSearch.scss";
 
@@ -17,9 +17,9 @@ const ProductSearch = (props) => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
-    const setSearchProductParams = (params) =>{
+    const setSearchProductParams = (params) => {
         const queryParams = new URLSearchParams(params);
-        const url = queryParams.size > 0 ? `?${queryParams.toString()}`: "";
+        const url = queryParams.size > 0 ? `?${queryParams.toString()}` : "";
         navigate(url);
     };
 
@@ -32,14 +32,13 @@ const ProductSearch = (props) => {
             if (values.search.length > 0) {
                 setSearchProductParams({ search: values.search });
             }
-
         },
     });
 
     const handleOnChange = (event) => {
         formik.handleChange(event);
 
-        setSearchType(isNaN(event.target.value) ?"string" : "number");
+        setSearchType(isNaN(event.target.value) ? "string" : "number");
 
         if (event.target.value.trim().length === 0) {
             setSearchProductParams({});
@@ -49,7 +48,7 @@ const ProductSearch = (props) => {
     useEffect(() => {
         const params = Object.fromEntries(searchParams);
         searchProducts(params);
-        formik.values.search = params?.search;
+        formik.values.search = params.search ?? "";
     }, [searchParams]);
 
     return (

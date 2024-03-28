@@ -35,7 +35,7 @@ const ProductGallery = () => {
                 :(
                     <Box className="product-gallery--empty">
                         <img
-                            src={`${PRODUCTS_IMG_URL}/images/home/others/emptyProducts.jpg`}
+                            src={`${PRODUCTS_IMG_URL}/emptyProducts.jpg`}
                             alt=""/>
                         <p>No se encontraron productos en la base de datos</p>
                     </Box>
