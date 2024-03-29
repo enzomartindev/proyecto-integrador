@@ -6,7 +6,7 @@ import {
     MESSAGE_STOCK_INVALID,
     REGEX_PRICE,
     REGEX_STOCK,
-} from "./../../../constanst/regexPattern";
+} from "../../../constanst/regexPattern";
 
 const validationSchema = yup.object({
     name: yup

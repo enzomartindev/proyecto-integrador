@@ -10,10 +10,9 @@ const useProducts = () => {
     const [ isLoading, setIsLoading ] = useState(true);
 
     const searchProducts = async(params) => {
+
         const queryParams = new URLSearchParams(params);
         const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` : PRODUCTS_URL;
-
-        //setIsLoading(true);
 
         return await axios.get(url)
             .then((res) => {
@@ -24,10 +23,6 @@ const useProducts = () => {
             });
 
     };
-
-    useEffect(() => {
-        searchProducts({});
-    }, []);
 
     const createProduct = async (values) => {
         return await axios.post(PRODUCTS_URL, values)
@@ -71,6 +66,10 @@ const useProducts = () => {
                 return res.data;
             });
     };
+
+    useEffect(() => {
+        searchProducts({});
+    }, []);
 
     return {
         products,

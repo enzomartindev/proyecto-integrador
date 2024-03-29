@@ -17,6 +17,7 @@ const ProductGallery = () => {
     }
 
     return (
+
         <Box className="product-gallery">
             <Box className="product-gallery__search">
                 <ProductSearch searchProducts={searchProducts}/>
@@ -41,7 +42,6 @@ const ProductGallery = () => {
                     </Box>
                 )}
         </Box>
-
     );
 };
 

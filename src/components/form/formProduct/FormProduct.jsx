@@ -8,11 +8,11 @@ import "./formProduct.scss";
 
 import validationSchema from "./formProduct.validate.js";
 
-import InputField from "../inputField/InputField";
+import InputField from "../inputField/InputField.jsx";
 import InputFile from "../inputFile/InputFile.jsx";
 
 import Switch from "../switch/Switch.jsx";
-import Button from "../../button/Button";
+import Button from "../../button/Button.jsx";
 import Alert from "../../alert/Alert.jsx";
 import { PRODUCTS_IMG_URL, IMAGE_DEFAULT_NAME } from "../../../constanst/api.js";
 import { JPG, PNG } from "./../../../constanst/general.js";
@@ -32,7 +32,6 @@ const FormProduct = (props) => {
                 values.imageFileName = response?.data?.filename ? response.data.filename : IMAGE_DEFAULT_NAME;
             }
 
-            console.log(values);
             values.id ? updateProduct(values) : createProduct(values);
             setOpenAlert(true);
         },
@@ -106,14 +105,16 @@ const FormProduct = (props) => {
                 label="Está en promoción"
                 name="isPromotion"
                 value={formik.values.isPromotion}
-                onChange={formik.handleChange}/>
+                onChange={formik.handleChange}
+            />
 
-            <Button type="submit" >Guardar</Button>
+            <Button type="submit">Guardar</Button>
             <Button
                 component={NavLink}
                 to={"/"}
+                type="button"
                 color="danger">
-                        Cancelar
+                    Cancelar
             </Button>
             <Alert
                 openAlert={openAlert}

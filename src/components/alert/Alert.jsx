@@ -19,7 +19,7 @@ const Alert = (props) => {
     const handleOnClickClose = () => {
         setOpenAlert(false);
 
-        if (redirectUrl) {
+        if (navigate) {
             navigate(redirectUrl);
         }
     };

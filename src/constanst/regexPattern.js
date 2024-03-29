@@ -1,6 +1,6 @@
 const MESSAGE_REQUIRED = "Este dato es obligatorio";
 const MESSAGE_TELEPHONE_INVALID = "Ingresa un teléfono válido. Ej: 02644241020";
-const MESSAGE_EMAIL_INVALID = "Ingresa un email válido. Ej. ser@gmail.com";
+const MESSAGE_EMAIL_INVALID = "Ingresa un email válido. Ej. usuario@gmail.com";
 const MESSAGE_PRICE_INVALID = "Ingresa un precio válido";
 const MESSAGE_STOCK_INVALID = "Ingresa un stock válido";
 const MESSAGE_IMAGE_PATH_INVALID = "Ingresa una ruta de imagen válida. Ej: /images/img01.jpg";

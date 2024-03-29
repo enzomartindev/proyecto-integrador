@@ -54,7 +54,7 @@ const CartTable = (props) => {
                                     scope="row">
                                     <img
                                         className="cartImage"
-                                        src={`${PRODUCTS_IMG_URL}${product.imageFileName}`}
+                                        src={`${PRODUCTS_IMG_URL}/${product.imageFileName}`}
                                         alt="Imagen del producto"/>
                                     {product.name}
                                 </TableCell>
