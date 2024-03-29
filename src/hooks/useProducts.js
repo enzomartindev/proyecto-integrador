@@ -14,6 +14,8 @@ const useProducts = () => {
         const queryParams = new URLSearchParams(params);
         const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` : PRODUCTS_URL;
 
+        setIsLoading(true);
+
         return await axios.get(url)
             .then((res) => {
                 setResponse(res);
