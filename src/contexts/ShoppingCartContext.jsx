@@ -41,6 +41,7 @@ const ShoppingCartProvider = (props) =>{
         if (productLS) {
             //Si  existe en LocalStorage, le sumo 1 al amount
             if (productLS.stock == product.amount ) {
+
                 alert("La cantidad solicitada supera el stock disponible");
 
             }else{

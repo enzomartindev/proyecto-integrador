@@ -22,8 +22,13 @@ const validationSchema = yup.object({
         .matches(REGEX_STOCK, MESSAGE_STOCK_INVALID)
         .required(MESSAGE_REQUIRED),
     description: yup
-        .string("Ingresa tu consulta")
-        .min(15, "Ingresa una consulta que tenga entre 15 y 150 carateres"),
+        .string("Ingresá la descripción")
+        .min(15, "Ingresa una descripción que tenga entre 15 y 150 carateres")
+        .required(MESSAGE_REQUIRED),
+    files: yup
+        .array()
+        .min(1, "Por favor, selecciona al menos un archivo"), // Validación para asegurar que se haya seleccionado al menos un archivo
+
 });
 
 export default validationSchema;

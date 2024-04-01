@@ -36,6 +36,7 @@ const useMailer = () => {
 
     return {
         sendConsult,
+        sendEmail,
     };
 };
 

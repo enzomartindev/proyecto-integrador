@@ -92,6 +92,7 @@ const FormProduct = (props) => {
                 name="files"
                 accept={[ JPG, PNG ]}
                 formik={formik}
+                value={formik.values.files}
                 error={formik.touched.files && Boolean(formik.errors.files)}
                 errorMessage={formik.touched.files && formik.errors.files}/>
 
