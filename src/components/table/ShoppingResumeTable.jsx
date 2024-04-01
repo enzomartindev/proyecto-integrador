@@ -14,16 +14,18 @@ import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { CURRENCY } from "./../../constanst/general.js";
 import Alert from "../../components/alert/Alert.jsx";
+import useProducts from "../../hooks/useProducts.js";
 
 const ShoppingResumeTable = () => {
 
     const [ openAlert, setOpenAlert ] = useState(false);
 
-    const { getTotal, shoppingCartCounter, purchaseCart, shoppingCart } = useContext(ShoppingCartContext);
+    const { getTotal, shoppingCartCounter, emptyShoppingCart, shoppingCart } = useContext(ShoppingCartContext);
+    const { updateStock } = useProducts();
 
     const handlePurchaseCart = (shoppingCart) => {
-
-        purchaseCart(shoppingCart);
+        updateStock(shoppingCart);
+        emptyShoppingCart();
         setOpenAlert(true);
     };
 

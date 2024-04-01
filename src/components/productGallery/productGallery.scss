@@ -3,6 +3,16 @@
 $_width: 100%;
 $_height: 100%;
 
+.networkError {
+    background-color: red;
+    padding: 10px;
+    text-align: center;
+
+    p {
+        color: white;
+    }
+}
+
 .product-gallery {
 
     padding: 1vh;
@@ -48,7 +58,6 @@ $_height: 100%;
             font-weight: bold;
             color: var.$colorFontDisabled;
         }
-
 
     }
 

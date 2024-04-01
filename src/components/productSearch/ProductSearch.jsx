@@ -32,6 +32,7 @@ const ProductSearch = (props) => {
             if (values.search.length > 0) {
                 setSearchProductParams({ search: values.search });
             }
+
         },
     });
 

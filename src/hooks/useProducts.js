@@ -7,22 +7,31 @@ const useProducts = () => {
     const { removeProductFromCart } = useContext( ShoppingCartContext );
     const [ response, setResponse ] = useState({});
     const [ products, setProducts ] = useState([]);
-    const [ isLoading, setIsLoading ] = useState(true);
+    const [ isLoading, setIsLoading ]= useState(true);
+    const [ error, setError ] = useState(null);
+
+    useEffect(() => {
+        searchProducts({});
+    }, []);
 
     const searchProducts = async(params) => {
 
         const queryParams = new URLSearchParams(params);
         const url = queryParams.size > 0 ? `${PRODUCTS_URL}?${queryParams.toString()}` : PRODUCTS_URL;
 
-        setIsLoading(true);
-
-        return await axios.get(url)
-            .then((res) => {
-                setResponse(res);
-                setProducts(res.data?.data);
-                setIsLoading(false);
-                return res.data;
-            });
+        try {
+            return await axios.get(url)
+                .then((res) => {
+                    setResponse(res);
+                    setProducts(res.data?.data);
+                    setIsLoading(false);
+                    setError(null);
+                    return res.data;
+                });
+        } catch (error) {
+            setError(error);
+            return error;
+        }
 
     };
 
@@ -53,6 +62,25 @@ const useProducts = () => {
             });
     };
 
+    const updateStock = async (products) => {
+
+        for (const product of products) {
+            const newStock = product.stock - product.amount;
+
+            try {
+                await axios.patch(`${PRODUCTS_URL}/${product.id}`, { newStock: newStock })
+                    .then((res) => {
+                        setResponse(res);
+                    });
+
+            } catch (error) {
+                console.error(`Error actualizando producto ${product.id}:`, error);
+            }
+
+        }
+
+    };
+
     const uploadProductImage = async (file) => {
         const options = {
             headers: {
@@ -69,18 +97,16 @@ const useProducts = () => {
             });
     };
 
-    useEffect(() => {
-        searchProducts({});
-    }, []);
-
     return {
         products,
         response,
         isLoading,
+        error,
         searchProducts,
         createProduct,
         updateProduct,
         removeProduct,
+        updateStock,
         uploadProductImage,
     };
 };

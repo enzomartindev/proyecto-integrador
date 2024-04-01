@@ -6,9 +6,7 @@ const ShoppingCartContext = createContext();
 
 const ShoppingCartProvider = (props) =>{
     const { children } = props;
-    const { items, setItem, getItemValue } = useLocalStorage({ shoppingCart : [] });
-    //const { products } = useProducts();
-    const products = getItemValue("products");
+    const { items, setItem } = useLocalStorage({ shoppingCart : [] });
 
     const getProductCart = (id) => {
         return items?.shoppingCart.find((item)=>item.id === id);
@@ -36,48 +34,20 @@ const ShoppingCartProvider = (props) =>{
         return(sum);
     };
 
-    const stockControl = (product) => {
-
-        const productosActualizados = getItemValue("products");
-        const index = productosActualizados.findIndex((item) => item.id === product.id);
-
-        if (product.amount === productosActualizados[index].stock){
-            alert("La cantidad solicitada supera el stock disponible");
-            return true;
-        }
-    };
-
-    const updateStock = (cartProducts) => {
-
-        const updatedProducts = products.map((existingProduct) => {
-            const updatedProduct = cartProducts.find((cartProduct) => cartProduct.id === existingProduct.id);
-            if (updatedProduct) {
-                return {
-                    ...existingProduct,
-                    stock: existingProduct.stock - updatedProduct.amount,
-                };
-            }
-            return existingProduct;
-        });
-
-        // Establecer los productos actualizados en el almacenamiento
-        setItem("products", updatedProducts);
-
-    };
-
     const addProductCart = (product) => {
 
         const productLS = getProductCart(product.id);
 
         if (productLS) {
             //Si  existe en LocalStorage, le sumo 1 al amount
-            if(!stockControl(productLS))
-            {
+            if (productLS.stock == product.amount ) {
+                alert("La cantidad solicitada supera el stock disponible");
+
+            }else{
                 product.amount = productLS.amount + 1;
                 const index = items.shoppingCart.findIndex((item) => item.id === product.id);
                 const products = items.shoppingCart.toSpliced(index, 1, product);
-                setItem("shoppingCart", products);
-            }
+                setItem("shoppingCart", products);}
 
         }else{
             //Si no existe en LocalStorage, le inicializo la cantidad en 1
@@ -105,11 +75,6 @@ const ShoppingCartProvider = (props) =>{
         }
     };
 
-    const purchaseCart = (cartProducts) => {
-        updateStock(cartProducts);
-        emptyShoppingCart();
-    };
-
     const removeProductFromCart = (id) => {
         const productToRemove = items.shoppingCart.find((product) => product.id === id);
         if (productToRemove) {
@@ -133,10 +98,8 @@ const ShoppingCartProvider = (props) =>{
                 shoppingCartCounter,
                 emptyShoppingCart,
                 getTotal,
-                stockControl,
-                updateStock,
                 removeProductFromCart,
-                purchaseCart }}>
+            }}>
             {children}
         </ShoppingCartContext.Provider>
     );
