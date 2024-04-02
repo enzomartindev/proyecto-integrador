@@ -16,6 +16,7 @@ import Button from "../../button/Button.jsx";
 import Alert from "../../alert/Alert.jsx";
 import { PRODUCTS_IMG_URL, IMAGE_DEFAULT_NAME } from "../../../constanst/api.js";
 import { JPG, PNG } from "./../../../constanst/general.js";
+import InputSelect from "../inputSelect/InputSelect.jsx";
 
 const FormProduct = (props) => {
     const { initialValues } = props;
@@ -48,6 +49,7 @@ const FormProduct = (props) => {
             <InputField
                 label="Nombre"
                 name="name"
+                size="small"
                 value={formik.values.name}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -58,6 +60,7 @@ const FormProduct = (props) => {
             <InputField
                 label="Precio"
                 name="price"
+                size="small"
                 value={formik.values.price}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -68,6 +71,7 @@ const FormProduct = (props) => {
             <InputField
                 label="Stock"
                 name="stock"
+                size="small"
                 value={formik.values.stock}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
@@ -76,8 +80,31 @@ const FormProduct = (props) => {
                 inputProps={{ maxLength: 6 }}/>
 
             <InputField
+                label="Marca"
+                name="brand"
+                size="small"
+                value={formik.values.brand}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.brand && Boolean(formik.errors.brand)}
+                errorMessage={formik.touched.brand && formik.errors.brand}
+                inputProps={{ maxLength: 25 }}/>
+
+            <InputSelect
+                label="Categoría"
+                name="category"
+                size="small"
+                value={formik.values.category}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                error={formik.touched.category && Boolean(formik.errors.category)}
+                errorMessage={formik.touched.category && formik.errors.category}
+            />
+
+            <InputField
                 label="Descripción"
                 name="description"
+                size="small"
                 multiline
                 rows={5}
                 value={formik.values.description}
@@ -102,6 +129,18 @@ const FormProduct = (props) => {
                 src={`${PRODUCTS_IMG_URL}/${formik.values.imageFileName}`}
                 alt="Fotografía del producto"/>
 
+            <Switch
+                label="Producto nacional"
+                name="isNational"
+                value={formik.values.isNational}
+                onChange={formik.handleChange}
+            />
+            <Switch
+                label="Envío gratis"
+                name="freeship"
+                value={formik.values.freeship}
+                onChange={formik.handleChange}
+            />
             <Switch
                 label="Está en promoción"
                 name="isPromotion"
@@ -132,9 +171,13 @@ FormProduct.propTypes = {
         name: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
         stock: PropTypes.number.isRequired,
+        brand: PropTypes.string.isRequired,
+        category: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         imageFileName: PropTypes.string.isRequired,
         isPromotion: PropTypes.bool.isRequired,
+        freeship: PropTypes.bool.isRequired,
+        isNational:PropTypes.bool.isRequired,
     }).isRequired,
 };
 
@@ -143,10 +186,14 @@ FormProduct.defaultProps = {
         name: "",
         price: 0,
         stock: 0,
+        brand: "",
+        category:"",
         description: "",
         imageFileName: IMAGE_DEFAULT_NAME,
         isPromotion: false,
         files: [],
+        freeship: false,
+        isNational: false,
     },
 };
 

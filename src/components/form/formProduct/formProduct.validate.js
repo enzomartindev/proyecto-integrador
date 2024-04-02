@@ -21,13 +21,20 @@ const validationSchema = yup.object({
         .string("Ingresa el stock")
         .matches(REGEX_STOCK, MESSAGE_STOCK_INVALID)
         .required(MESSAGE_REQUIRED),
+    brand: yup
+        .string("Ingresa la marca")
+        .min(2, "Ingresa un nombre que tenga 2 carateres o más")
+        .required(MESSAGE_REQUIRED),
+    category: yup
+        .string("Seleccioná la categoria")
+        .required(MESSAGE_REQUIRED),
     description: yup
         .string("Ingresá la descripción")
         .min(15, "Ingresa una descripción que tenga entre 15 y 150 carateres")
         .required(MESSAGE_REQUIRED),
     files: yup
         .array()
-        .min(1, "Por favor, selecciona al menos un archivo"), // Validación para asegurar que se haya seleccionado al menos un archivo
+        .min(1, "Por favor, selecciona al menos un archivo"),
 
 });
 

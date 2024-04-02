@@ -8,6 +8,7 @@ import { useRef } from "react";
 const Product = () => {
     const location = useLocation();
     const productRef = useRef(location?.state?.product);
+
     return (
         <Box className="product">
             <Box

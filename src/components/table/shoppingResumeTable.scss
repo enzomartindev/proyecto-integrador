@@ -39,12 +39,24 @@
         }
     }
 
-    &--btn {
-        display: flex !important;
-        margin: 10px 0 10px 0;
-        justify-content: center !important;
+    &--form {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 15px;
+
+        &--btn {
+            margin: 10px 0 10px 0;
+            align-self: center !important;
+            width: fit-content;
+
+        }
+
 
     }
+
+
+
 
 
     @media (max-width: 960px) {

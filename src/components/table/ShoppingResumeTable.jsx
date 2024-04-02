@@ -5,16 +5,19 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import InputField from "../form/inputField/InputField.jsx";
+import { useFormik } from "formik";
+import validationSchema from "./formCartValidation.js";
 
 import "./shoppingResumeTable.scss";
 import { Box } from "@mui/material";
 import Button from "../button/Button";
-import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../contexts/ShoppingCartContext";
 import { CURRENCY } from "./../../constanst/general.js";
 import Alert from "../../components/alert/Alert.jsx";
 import useProducts from "../../hooks/useProducts.js";
+import useMailer from "../../hooks/useMailer.js";
 
 const ShoppingResumeTable = () => {
 
@@ -22,12 +25,26 @@ const ShoppingResumeTable = () => {
 
     const { getTotal, shoppingCartCounter, emptyShoppingCart, shoppingCart } = useContext(ShoppingCartContext);
     const { updateStock } = useProducts();
+    const { sendPurchaseConfirmation } = useMailer();
 
     const handlePurchaseCart = (shoppingCart) => {
         updateStock(shoppingCart);
-        emptyShoppingCart();
         setOpenAlert(true);
     };
+
+    const formik = useFormik({
+        initialValues: {
+            fullname: "",
+            email: "",
+        },
+        validationSchema: validationSchema,
+        onSubmit: (values, { resetForm }) => {
+            handlePurchaseCart(shoppingCart);
+            sendPurchaseConfirmation(values);
+            emptyShoppingCart();
+            resetForm();
+        },
+    });
 
     return (
         <Box className="shoppingCart__resume">
@@ -65,13 +82,41 @@ const ShoppingResumeTable = () => {
                     </TableBody>
                 </Table>
                 {shoppingCartCounter() > 0 && (
-                    <Box className="shoppingCart__resume--btn">
+                    <Box
+                        component="form"
+                        className="shoppingCart__resume--form"
+                        noValidate
+                        autoComplete="off"
+                        onSubmit={formik.handleSubmit}>
+
+                        <InputField
+                            label="Nombre y apellido"
+                            name="fullname"
+                            size="small"
+                            variant="outlined"
+                            value={formik.values.fullname}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.fullname && Boolean(formik.errors.fullname)}
+                            errorMessage={formik.touched.fullname && formik.errors.fullname}
+                            inputProps={{ maxLength: 25 }}/>
+
+                        <InputField
+                            label="E-mail"
+                            name="email"
+                            size="small"
+                            variant="outlined"
+                            value={formik.values.email}
+                            onChange={formik.handleChange}
+                            onBlur={formik.handleBlur}
+                            error={formik.touched.email && Boolean(formik.errors.email)}
+                            errorMessage={formik.touched.email && formik.errors.email}
+                            inputProps={{ maxLength: 50 }}/>
+
                         <Button
-                            component={NavLink}
-                            type="button"
+                            className="shoppingCart__resume--form--btn"
+                            type="submit"
                             color="success"
-                            onClick={()=> {
-                                handlePurchaseCart(shoppingCart);}}
                         >Confirmar Compra
                         </Button>
                     </Box>)}

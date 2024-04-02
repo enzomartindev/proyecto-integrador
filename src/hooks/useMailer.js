@@ -22,6 +22,26 @@ const useMailer = () => {
 
     };
 
+    const sendPurchaseConfirmation = (params ) => {
+
+        const { fullname, email } = params;
+
+        //enviar info a store
+        sendEmail({
+            to: "enzo.martin.alfonso@gmail.com",
+            subject: "Compra realizada!",
+            content: `Nombre: ${fullname}\nE-mail: ${email}` });
+
+        //Envia mail a usuario
+        sendEmail( {
+            to: email,
+            subject: "Confirmación de compra",
+            content: `Hola ${fullname} \n
+            Gracias por comprar en tinchoStore!` },
+        );
+
+    };
+
     const sendEmail = async(params) => {
 
         const queryParams = new URLSearchParams(params);
@@ -36,7 +56,8 @@ const useMailer = () => {
 
     return {
         sendConsult,
-        sendEmail,
+        sendPurchaseConfirmation,
+
     };
 };
 
