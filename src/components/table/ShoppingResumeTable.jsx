@@ -18,6 +18,7 @@ import { CURRENCY } from "./../../constanst/general.js";
 import Alert from "../../components/alert/Alert.jsx";
 import useProducts from "../../hooks/useProducts.js";
 import useMailer from "../../hooks/useMailer.js";
+import usePurchaser from "../../hooks/usePurchaser.js";
 
 const ShoppingResumeTable = () => {
 
@@ -25,6 +26,8 @@ const ShoppingResumeTable = () => {
 
     const { getTotal, shoppingCartCounter, emptyShoppingCart, shoppingCart } = useContext(ShoppingCartContext);
     const { updateStock } = useProducts();
+    const { logPurchase } = usePurchaser();
+
     const { sendPurchaseConfirmation } = useMailer();
 
     const handlePurchaseCart = (shoppingCart) => {
@@ -39,10 +42,12 @@ const ShoppingResumeTable = () => {
         },
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
-            handlePurchaseCart(shoppingCart);
-            sendPurchaseConfirmation(values);
-            emptyShoppingCart();
-            resetForm();
+            const total = getTotal();
+            //handlePurchaseCart(shoppingCart);
+            logPurchase(values, total);
+            //sendPurchaseConfirmation(values);
+            //emptyShoppingCart();
+            //resetForm();
         },
     });
 
