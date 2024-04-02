@@ -43,11 +43,11 @@ const ShoppingResumeTable = () => {
         validationSchema: validationSchema,
         onSubmit: (values, { resetForm }) => {
             const total = getTotal();
-            //handlePurchaseCart(shoppingCart);
+            handlePurchaseCart(shoppingCart);
             logPurchase(values, total);
-            //sendPurchaseConfirmation(values);
-            //emptyShoppingCart();
-            //resetForm();
+            sendPurchaseConfirmation(values);
+            emptyShoppingCart();
+            resetForm();
         },
     });
 
